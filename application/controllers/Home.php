@@ -8,21 +8,25 @@ class Home extends CI_Controller {
     public function index()
     {
         $data = array(
-            'title' => 'RA Rabbani',
-            'galeri' => $this->M_galeri->get_all(),
-            'profile' => $this->M_profile_sekolah->get_all(),
-            'alur' => $this->M_alur->get_all(),
-            'data_informasi' => $this->M_informasi->get_all(),
-            'data_pendaftar' => $this->M_berkas_siswa->get_all(),
+            'title' => 'Aplikasi Desa Wisata',
+            'data_homestay' => $this->M_homestay->get_limit(6),
+            'data_souvenir' => $this->M_souvenir->get_limit(8),
+            'data_kuliner' => $this->M_kuliner->get_limit(4),
+            'data_karcis' => $this->M_karcis->get_limit(8),
+            // 'galeri' => $this->M_galeri->get_all(),
+            // 'profile' => $this->M_profile_sekolah->get_all(),
+            // 'alur' => $this->M_alur->get_all(),
+            // 'data_informasi' => $this->M_informasi->get_all(),
+            // 'data_pendaftar' => $this->M_berkas_siswa->get_all(),
         );
-        $this->templates->calon('v_home', $data);
+        $this->templates->pengunjung('v_home', $data);
     }
 
     public function detail_informasi($kd_informasi){
         $data = array(
             'informasi' => $this->M_informasi->get_by_id($kd_informasi),
         );
-        $this->templates->calon('v_detail_informasi', $data);
+        $this->templates->pengunjung('v_detail_informasi', $data);
     }
 
     public function insert_pesan(){

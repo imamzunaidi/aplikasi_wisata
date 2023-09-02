@@ -60,15 +60,17 @@
                     <li class="<?php if($halaman == 'data-member'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-member')?>">Data Member</a></li>
                   </ul>
                 </li>
+                <li class = "<?php if($halaman == 'data-bank'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-bank')?>"><i class="fas fa-file"></i> <span>Data Bank</span></a></li>
                 <li class = "<?php if($halaman == 'data-home-stay-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-home-stay-admin')?>"><i class="fas fa-bed"></i> <span>Data Home Stay</span></a></li>
                 <li class = "<?php if($halaman == 'data-kuliner-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-kuliner-admin')?>"><i class="fas fa-hamburger"></i><span>Data Kuliner</span></a></li>
                 <li class = "<?php if($halaman == 'data-souvenir-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-souvenir-admin')?>"><i class="fas fa-shopping-bag"></i></i> <span>Data Souvenir</span></a></li>
                 <li class = "<?php if($halaman == 'data-karcis-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-karcis-admin')?>"><i class="fas fa-money-check"></i> <span>Data Karcis</span></a></li>
                 <li class="menu-header">Pengolahan Data Pemesanan</li>
-                <li class="nav-item dropdown <?php if($halaman == 'data-pemesanan-homestay' || $halaman == 'data-pemesanan-kuliner' || $halaman == 'data-pemesanan-karcis'){echo 'active';}?>">
+                <li class="nav-item dropdown <?php if($halaman == 'data-pemesanan-homestay' || $halaman == 'data-pemesanan-souvenir' || $halaman == 'data-pemesanan-kuliner' || $halaman == 'data-pemesanan-karcis'){echo 'active';}?>">
                   <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Pemesanan</span></a>
                   <ul class="dropdown-menu">
                     <li class="<?php if($halaman == 'data-pemesanan-homestay'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-homestay')?>">Pemesanan Home Stay</a></li>
+                    <li class="<?php if($halaman == 'data-pemesanan-souvenir'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-souvenir')?>">Pemesanan Souvenir</a></li>
                     <li class="<?php if($halaman == 'data-pemesanan-kuliner'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-kuliner')?>">Pemesanan Kuliner</a></li>
                     <li class="<?php if($halaman == 'data-pemesanan-karcis'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-karcis')?>">Pemesanan Karcis</a></li>
                   </ul>

@@ -19,13 +19,13 @@ class Templates
         $this->ci->load->view('templates_admin/v_admin_script', $data);
     }
 
-    public function calon($content, $data = Null)
+    public function pengunjung($content, $data = Null)
     {
-        $this->ci->load->view('templates_calon/v_header');
-        $this->ci->load->view('templates_calon/v_sidebar', $data);
-        $this->ci->load->view('calon/' . $content, $data);
-        $this->ci->load->view('templates_calon/v_footer');
-        $this->ci->load->view('templates_calon/v_script', $data);
+        $this->ci->load->view('templates_pengunjung/v_header');
+        $this->ci->load->view('templates_pengunjung/v_navbar', $data);
+        $this->ci->load->view('pengunjung/' . $content, $data);
+        $this->ci->load->view('templates_pengunjung/v_footer');
+        $this->ci->load->view('templates_pengunjung/v_script', $data);
     }
 
 

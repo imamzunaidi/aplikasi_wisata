@@ -10,6 +10,22 @@ public function get_all(){
 
 }
 
+public function get_limit($limit){
+   
+    $this->db->select('*');
+    $this->db->from('tbl_kuliner tbs');
+    $this->db->limit($limit);
+    
+    return $this->db->get()->result();
+
+}
+
+public function get_search($search){
+    $this->db->like('nama_kuliner', $search, 'both'); 
+    return $this->db->get($this->table)->result();
+}
+
+
 public function get_by_id($id_kuliner){
     $this->db->where('id_kuliner', $id_kuliner);
     return $this->db->get($this->table)->row();

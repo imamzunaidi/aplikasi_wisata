@@ -53,22 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//siswa
-$route['login'] = 'auth';
-$route['detail-berkas'] = 'calon/data_detail_berkas';
-$route['cetak-berkas'] = 'calon/data_detail_berkas/cetak_berkas';
-$route['riwayat-pendaftaran'] = 'calon/data_detail_berkas/riwayat_pendaftaran';
-
-// Auth
-$route['login-siswa'] = 'auth/login_siswa';
-$route['register-siswa'] = 'auth/register_siswa';
-$route['lengkapi-biodata'] = 'auth/lengkapi_biodata';
-$route['lengkapi-berkas'] = 'auth/lengkapi_berkas';
-
-$route['pendaftaran'] = 'auth/pendaftaran';
-$route['logout'] = 'auth/logout';
-
 //admin
+$route['login'] = 'Auth';
+$route['logout'] = 'Auth/logout';
 $route['dashboard'] = 'admin/dashboard';
 $route['data-admin'] = 'admin/data_admin';
 $route['data-member'] = 'admin/data_member';
@@ -78,10 +65,30 @@ $route['data-galeri'] = 'admin/data_galeri';
 $route['data-alur'] = 'admin/data_alur';
 $route['data-profile'] = 'admin/data_profile_sekolah';
 $route['data-home-stay-admin'] = 'admin/data_homestay';
+$route['data-souvenir-admin'] = 'admin/data_souvenir';
+$route['data-karcis-admin'] = 'admin/data_karcis';
 $route['data-informasi'] = 'admin/data_informasi';
 $route['laporan-keterima'] = 'admin/data_keterima';
 $route['laporan-ketolak'] = 'admin/data_ketolak';
 $route['data-pesan'] = 'admin/data_pesan';
+$route['data-bank'] = 'admin/data_bank';
+
+//pengunjung
+$route['home'] = 'home';
+$route['home-stay'] = 'pengunjung/Data_homestay';
+$route['kuliner'] = 'pengunjung/Data_kuliner';
+$route['karcis'] = 'pengunjung/Data_karcis';
+$route['souvenir'] = 'pengunjung/Data_souvenir';
+$route['pesanan-homestay'] = 'pengunjung/Data_pemesanan_homestay';
+$route['pesanan-kuliner'] = 'pengunjung/Data_pemesanan_kuliner';
+$route['pesanan-karcis'] = 'pengunjung/Data_pemesanan_karcis';
+$route['pesanan-souvenir'] = 'pengunjung/Data_pemesanan_souvenir';
+$route['pembayaran'] = 'pengunjung/Data_pembayaran';
+$route['riwayat-homestay'] = 'pengunjung/Data_riwayat_homestay';
+$route['riwayat-kuliner'] = 'pengunjung/Data_riwayat_kuliner';
+$route['riwayat-karcis'] = 'pengunjung/Data_riwayat_karcis';
+$route['riwayat-souvenir'] = 'pengunjung/Data_riwayat_souvenir';
+
 
 
 

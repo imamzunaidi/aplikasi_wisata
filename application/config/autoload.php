@@ -145,7 +145,6 @@ $autoload['model'] = array(
     'M_auth',
     'M_admin',
     'M_member',
-    'M_register',
     'M_profile_sekolah',
     'M_galeri',
     'M_alur',
@@ -153,4 +152,9 @@ $autoload['model'] = array(
     'M_pesan',
     'M_homestay',
     'M_kuliner',
+    'M_souvenir',
+    'M_karcis',
+    'M_pemesanan_home_stay',
+    'M_bank',
+    'M_pembayaran'
 );
