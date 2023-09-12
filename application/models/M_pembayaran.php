@@ -6,13 +6,25 @@ class M_pembayaran extends CI_Model {
 
     private $table = 'tbl_pembayaran';
 
-    public function get_pembayaran_homestay(){  
+    public function get_pembayaran_homestay($id_member){  
         $this->db->select('*');
         $this->db->from('tbl_pembayaran tpb');
         $this->db->join('tbl_pemesanan_home_stay tph', 'tph.id_pemesanan_homestay = tpb.id_pemesanan_homestay', 'inner');
         $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
         $this->db->join('tbl_home_stay th', 'tph.id_home_stay = th.id_home_stay', 'inner');
         $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('tm.id_member', $id_member);
+        
+        return $this->db->get()->result();
+    }
+
+    public function get_pembayaran_kuliner($id_member){  
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_kuliner tph', 'tph.id_pemesanan_kuliner = tpb.id_pemesanan_kuliner', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('tm.id_member', $id_member);
         
         return $this->db->get()->result();
     }
@@ -23,6 +35,18 @@ class M_pembayaran extends CI_Model {
         $this->db->join('tbl_pemesanan_home_stay tph', 'tph.id_pemesanan_homestay = tpb.id_pemesanan_homestay', 'inner');
         $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
         $this->db->join('tbl_home_stay th', 'tph.id_home_stay = th.id_home_stay', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('id_pembayaran', $id_pembayaran);
+        
+        return $this->db->get()->row();
+    }
+
+
+    public function detail_pembayaran_kuliner($id_pembayaran){
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_kuliner tph', 'tph.id_pemesanan_kuliner = tpb.id_pemesanan_kuliner', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
         $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
         $this->db->where('id_pembayaran', $id_pembayaran);
         

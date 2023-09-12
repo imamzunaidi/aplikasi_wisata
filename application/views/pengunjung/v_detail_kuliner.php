@@ -39,19 +39,8 @@
                             <div class="product-content">
                                 <p><?= $detail_kuliner->deskripsi_kuliner?> </p>
                             </div>
-                            <div class="product-details-action">
-                                <?php 
-                                    echo form_open('pembeli/barang/add_keranjang');
-                                    echo form_hidden('id', $detail_kuliner->id_kuliner );
-                                    echo form_hidden('qty', 1);
-                                    echo form_hidden('price', $detail_kuliner->harga_kuliner);
-                                    echo form_hidden('name', $detail_kuliner->nama_kuliner);
-                                    echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
-                                ?>
-                                <button type = "submit" class="btn btn-sm btn-primary  swalDefaultSuccess">
-                                    <i class="fas fa-cart-plus"></i> Pemesanan
-                                </button>
-                                <?php echo form_close();?>
+                            <a href="" class="btn btn-sm btn-primary  swalDefaultSuccess"> <i class="fas fa-cart-plus"></i> Pemesanan</a>
+                          
                             </div><!-- End .product-details-action -->
                         </div><!-- End .product-details -->
                     </div><!-- End .col-md-6 -->
