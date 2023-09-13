@@ -22,6 +22,7 @@ class Data_pembayaran extends CI_Controller {
             'data_pembayaran_homestay' => $this->M_pembayaran->get_pembayaran_homestay($id_member),
             'data_pembayaran_kuliner' => $this->M_pembayaran->get_pembayaran_kuliner($id_member),
             'data_pembayaran_souvenir' => $this->M_pembayaran->get_pembayaran_souvenir($id_member),
+            'data_pembayaran_karcis' => $this->M_pembayaran->get_pembayaran_karcis($id_member),
         );
         $this->templates->pengunjung('v_data_pembayaran', $data);
     }
@@ -122,6 +123,38 @@ class Data_pembayaran extends CI_Controller {
         $this->flash_message->success('Tambahkan', 'pembayaran');
     }
 
+    public function pembayaran_karcis(){
+        $gambar= $_FILES['gambar']['name'];
+
+        $result_gambar= $this->upload_foto->upload($gambar,'gambar', 'pembayaran');
+
+        if($result_gambar== NULL ){
+            $this->flash_message->failed('Foto Gagal di simpan', 'pesanan-karcis');
+        }
+        
+        $data = array(
+            'pembayaran' => $this->input->post('pembayaran'),
+            'id_pemesanan_karcis' => $this->input->post('id_pemesanan_karcis'),
+            'id_bank' => $this->input->post('id_bank'),
+            'kategori' => 'Pembayaran Karcis',
+            'bukti_bayar' => $result_gambar,
+        );
+
+        $this->M_pembayaran->insert($data);
+
+
+        $id_pemesanan_karcis = $this->input->post('id_pemesanan_karcis');
+
+        $update = [
+            'status_pemesanan' => 'menunggu konfirmasi'
+        ];
+
+        $this->M_pemesanan_karcis->update($update, $id_pemesanan_karcis);
+
+        $this->flash_message->success('Tambahkan', 'pembayaran');
+    }
+
+
     public function detail_pembayaran_homestay($id_pembayaran){
         $data = array(
             'title' => 'Detail Pemesanan Homestay',
@@ -135,7 +168,7 @@ class Data_pembayaran extends CI_Controller {
     public function detail_pembayaran_kuliner($id_pembayaran){
         $data_pemesanan = $this->M_pembayaran->detail_pembayaran_kuliner($id_pembayaran);
         $data = array(
-            'title' => 'Detail Pemesanan Homestay',
+            'title' => 'Detail Pemesanan Kuliner',
             'data_bank' => $this->M_bank->get_all(),
             'detail_pembayaran_kuliner' => $this->M_pembayaran->detail_pembayaran_kuliner($id_pembayaran),
             'detail_pemesanan' => $this->M_detail_pemesanan_kuliner->get_all($data_pemesanan->id_pemesanan_kuliner),
@@ -148,7 +181,7 @@ class Data_pembayaran extends CI_Controller {
     public function detail_pembayaran_souvenir($id_pembayaran){
         $data_pemesanan = $this->M_pembayaran->detail_pembayaran_souvenir($id_pembayaran);
         $data = array(
-            'title' => 'Detail Pemesanan Homestay',
+            'title' => 'Detail Pemesanan Souvenir',
             'data_bank' => $this->M_bank->get_all(),
             'detail_pembayaran_souvenir' => $this->M_pembayaran->detail_pembayaran_souvenir($id_pembayaran),
             'detail_pemesanan' => $this->M_detail_pemesanan_souvenir->get_all($data_pemesanan->id_pemesanan_souvenir),
@@ -156,6 +189,19 @@ class Data_pembayaran extends CI_Controller {
 
 
         $this->templates->pengunjung('v_detail_pembayaran_souvenir', $data);
+    }
+
+    public function detail_pembayaran_karcis($id_pembayaran){
+        $data_pemesanan = $this->M_pembayaran->detail_pembayaran_karcis($id_pembayaran);
+        $data = array(
+            'title' => 'Detail Pemesanan karcis',
+            'data_bank' => $this->M_bank->get_all(),
+            'detail_pembayaran_karcis' => $this->M_pembayaran->detail_pembayaran_karcis($id_pembayaran),
+            'detail_pemesanan' => $this->M_detail_pemesanan_karcis->get_all($data_pemesanan->id_pemesanan_karcis),
+        );
+
+
+        $this->templates->pengunjung('v_detail_pembayaran_karcis', $data);
     }
     
 
