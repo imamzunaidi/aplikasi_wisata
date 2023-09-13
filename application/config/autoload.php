@@ -156,7 +156,9 @@ $autoload['model'] = array(
     'M_karcis',
     'M_pemesanan_home_stay',
     'M_pemesanan_kuliner',
+    'M_pemesanan_souvenir',
     'M_bank',
     'M_pembayaran',
-    'M_detail_pemesanan_kuliner'
+    'M_detail_pemesanan_kuliner',
+    'M_detail_pemesanan_souvenir',
 );

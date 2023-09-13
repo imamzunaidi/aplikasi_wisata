@@ -45,27 +45,25 @@
                                         <a href="<?= base_url('pengunjung/data_souvenir/detail/'.$value->id_souvenir)?>" class="btn-product" title="Compare"><span>Detail</span></a>
                                     </div><!-- End .product-action -->
                                 </figure><!-- End .product-media -->
-                                <?php 
-                                        echo form_open('pengunjung/souvenir/add_keranjang');
-                                        echo form_hidden('id', $value->id_souvenir );
-                                        echo form_hidden('qty', 1);
-                                        echo form_hidden('price', $value->harga_souvenir);
-                                        echo form_hidden('name', $value->nama_souvenir);
-                                        echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
-                                    ?>
+                               
                                 <div class="product-body">
                      
                                     <h3 class="product-title"><a href="<?= base_url('pengunjung/data_souvenir/detail/' . $value->id_souvenir) ?>"><?= $value->nama_souvenir?></a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         Rp. <?= number_format($value->harga_souvenir, 0)?>
                                     </div><!-- End .product-price -->
-                                    <button type = "submit" class="swalDefaultSuccess btn btn-outline-primary btn-rounded" style = "width: 100%;">
-                                        <i class="fas fa-cart-plus"></i> add to cart
-                                    </button>
-                                    
+                                 
+                                    <form action="<?= base_url('pengunjung/data_pemesanan_souvenir/add_souvenir')?>" method="post">
+                                        <input type="hidden" name = "id_souvenir" value = "<?= $value->id_souvenir?>">
+                                        <input type="hidden" name = "qty" value = "1">
+                                 
+                                        <button type = "submit" class="btn btn-sm btn-primary swalDefaultSuccess" style = "width: 100%;">
+                                            <i class="fas fa-cart-plus"></i> Pemesanan
+                                        </button>
+                                        
+                                    </form>
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
-                            <?php echo form_close();?>
                         </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
                     <?php  }?>
                 </div><!-- End .row -->                    

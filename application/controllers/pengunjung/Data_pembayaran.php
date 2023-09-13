@@ -21,6 +21,7 @@ class Data_pembayaran extends CI_Controller {
             'title' => 'Data Pembayaran',
             'data_pembayaran_homestay' => $this->M_pembayaran->get_pembayaran_homestay($id_member),
             'data_pembayaran_kuliner' => $this->M_pembayaran->get_pembayaran_kuliner($id_member),
+            'data_pembayaran_souvenir' => $this->M_pembayaran->get_pembayaran_souvenir($id_member),
         );
         $this->templates->pengunjung('v_data_pembayaran', $data);
     }
@@ -90,6 +91,37 @@ class Data_pembayaran extends CI_Controller {
         $this->flash_message->success('Tambahkan', 'pembayaran');
     }
 
+    public function pembayaran_souvenir(){
+        $gambar= $_FILES['gambar']['name'];
+
+        $result_gambar= $this->upload_foto->upload($gambar,'gambar', 'pembayaran');
+
+        if($result_gambar== NULL ){
+            $this->flash_message->failed('Foto Gagal di simpan', 'pesanan-kuliner');
+        }
+        
+        $data = array(
+            'pembayaran' => $this->input->post('pembayaran'),
+            'id_pemesanan_souvenir' => $this->input->post('id_pemesanan_souvenir'),
+            'id_bank' => $this->input->post('id_bank'),
+            'kategori' => 'Pembayaran Souvenir',
+            'bukti_bayar' => $result_gambar,
+        );
+
+        $this->M_pembayaran->insert($data);
+
+
+        $id_pemesanan_souvenir = $this->input->post('id_pemesanan_souvenir');
+
+        $update = [
+            'status_pemesanan' => 'menunggu konfirmasi'
+        ];
+
+        $this->M_pemesanan_souvenir->update($update, $id_pemesanan_souvenir);
+
+        $this->flash_message->success('Tambahkan', 'pembayaran');
+    }
+
     public function detail_pembayaran_homestay($id_pembayaran){
         $data = array(
             'title' => 'Detail Pemesanan Homestay',
@@ -113,6 +145,20 @@ class Data_pembayaran extends CI_Controller {
         $this->templates->pengunjung('v_detail_pembayaran_kuliner', $data);
     }
     
+    public function detail_pembayaran_souvenir($id_pembayaran){
+        $data_pemesanan = $this->M_pembayaran->detail_pembayaran_souvenir($id_pembayaran);
+        $data = array(
+            'title' => 'Detail Pemesanan Homestay',
+            'data_bank' => $this->M_bank->get_all(),
+            'detail_pembayaran_souvenir' => $this->M_pembayaran->detail_pembayaran_souvenir($id_pembayaran),
+            'detail_pemesanan' => $this->M_detail_pemesanan_souvenir->get_all($data_pemesanan->id_pemesanan_souvenir),
+        );
+
+
+        $this->templates->pengunjung('v_detail_pembayaran_souvenir', $data);
+    }
+    
+
     public function search(){
         $search = $this->input->post('search');
 

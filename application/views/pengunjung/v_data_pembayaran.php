@@ -113,7 +113,43 @@
                                 </table>
                             </div><!-- .End .tab-pane -->
                             <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3-tab">
-                                <p>Perspiciatis quis nobis, adipisci quae aspernatur, nulla suscipit eum. Dolorum, earum. Consectetur pariatur repellat distinctio atque alias excepturi aspernatur nisi accusamus sed molestias ipsa numquam eius, iusto, aliquid, quis aut.</p>
+                            <table class = "table table-hover">
+                                    <thead>
+                                        <tr class ="text-center">
+                                            <th>No</th>
+                                            <th>Pemesanan</th>
+                                            <th>Keterangan</th>
+                                            <th>Nama Bank</th>
+                                            <th>Pembayaran</th>
+                                            <th>Kategori</th>
+                                            <th>Tanggal Pembayaran</th>
+                                            <th>Status Pembayaran</th>
+                                            <th>Bukti Bayar</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <?php $no = 1; 
+                                            foreach ($data_pembayaran_souvenir as $key => $value) { ?>
+                                                <tr class ="text-center">
+                                                    <td><?= $no++?></td>
+                                                    <td><?= $value->nama_pemesan?></td>
+                                                    <td><?= $value->kategori?></td>
+                                                    <td><?= $value->nama_bank?></td>
+                                                    <td>Rp. <?= number_format($value->pembayaran, 2)?></td>
+                                                    <td><?= $value->kategori?></td>
+                                                    <td><?= $value->tanggal_pembayaran?></td>
+                                                    <td><?= $value->status_pemesanan?></td>
+                                                    <td width = "10%" class ="text-center"><img src="<?= base_url()?>assets/img/pembayaran/<?= $value->bukti_bayar?>" alt="" width ="90%"></td>
+                                                    <td>
+                                                        <a href="<?= base_url('pengunjung/data_pembayaran/detail_pembayaran_souvenir/' . $value->id_pembayaran) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div><!-- .End .tab-pane -->
                             <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="tab-4-tab">
                                 <p>Quis nobis, adipisci quae aspernatur, nulla suscipit eum. Dolorum, earum. Consectetur pariatur repellat distinctio atque alias excepturi aspernatur nisi accusamus sed molestias ipsa numquam eius, iusto, aliquid, quis aut.</p>

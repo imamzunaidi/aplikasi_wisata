@@ -29,6 +29,17 @@ class M_pembayaran extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function get_pembayaran_souvenir($id_member){  
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_souvenir tph', 'tph.id_pemesanan_souvenir = tpb.id_pemesanan_souvenir', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('tm.id_member', $id_member);
+        
+        return $this->db->get()->result();
+    }
+
     public function detail_pembayaran_homestay($id_pembayaran){
         $this->db->select('*');
         $this->db->from('tbl_pembayaran tpb');
@@ -46,6 +57,17 @@ class M_pembayaran extends CI_Model {
         $this->db->select('*');
         $this->db->from('tbl_pembayaran tpb');
         $this->db->join('tbl_pemesanan_kuliner tph', 'tph.id_pemesanan_kuliner = tpb.id_pemesanan_kuliner', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('id_pembayaran', $id_pembayaran);
+        
+        return $this->db->get()->row();
+    }
+
+    public function detail_pembayaran_souvenir($id_pembayaran){
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_souvenir tph', 'tph.id_pemesanan_souvenir = tpb.id_pemesanan_souvenir', 'inner');
         $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
         $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
         $this->db->where('id_pembayaran', $id_pembayaran);
