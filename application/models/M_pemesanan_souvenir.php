@@ -10,8 +10,7 @@ class M_pemesanan_souvenir extends CI_Model {
         $this->db->select('*');
         $this->db->from('tbl_pemesanan_souvenir tp');
         $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');
-        $this->db->where('status_pemesanan', 'lakukan pembayaran');
-        
+        $this->db->order_by('tp.id_pemesanan_souvenir', 'desc');
         return $this->db->get()->result();
     }
 

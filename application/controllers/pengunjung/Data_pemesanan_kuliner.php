@@ -28,7 +28,6 @@ class Data_pemesanan_kuliner extends CI_Controller {
 
     public function pemesanan()
     {
-        $this->cart->destroy();
         $data = array(
             'title' => 'Data kuliner',
             'data_kuliner' => $this->M_kuliner->get_all(),

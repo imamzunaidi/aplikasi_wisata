@@ -29,8 +29,6 @@
                                         <th>No Telp</th>
                                         <th>Total</th>
                                         <th>Tanggal</th>
-                                     
-                                       
                                         <th>Status Pemesanan</th>
                                        
                                         <th>Action</th>

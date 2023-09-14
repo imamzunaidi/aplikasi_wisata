@@ -75,8 +75,8 @@
                     <li class="<?php if($halaman == 'data-pemesanan-karcis'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-karcis')?>">Pemesanan Karcis</a></li>
                   </ul>
                 </li>
-                <li class = "<?php if($halaman == 'data-checkin-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-checkin-admin')?>"><i class="fas fa-bell"></i> <span>Data Check In</span></a></li>
-                <li class = "<?php if($halaman == 'data-checkout-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-chcekout-admin')?>"><i class="fas fa-calendar-check"></i> <span>Data Check Out</span></a></li>
+                <!-- <li class = "<?php if($halaman == 'data-checkin-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-checkin-admin')?>"><i class="fas fa-bell"></i> <span>Data Check In</span></a></li>
+                <li class = "<?php if($halaman == 'data-checkout-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-chcekout-admin')?>"><i class="fas fa-calendar-check"></i> <span>Data Check Out</span></a></li> -->
                 <li class = "<?php if($halaman == 'data-pembayaran-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pembayaran-admin')?>"><i class="fas fa-credit-card"></i><span>Data Pembayaran</span></a></li>
                 <li class="menu-header">Data Laporan</li>
                 <li class="nav-item dropdown <?php if($halaman == 'laporan-pemesanan' ||$halaman == 'laporan-kunjungan'){echo 'active';}?>">

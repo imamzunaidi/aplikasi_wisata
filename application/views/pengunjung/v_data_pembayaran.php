@@ -50,8 +50,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
+                                    <tbody>  <tr>
                                             <?php $no = 1; 
                                             foreach ($data_pembayaran_homestay as $key => $value) { ?>
                                                 <tr class ="text-center">
@@ -69,7 +68,7 @@
                                                     </td>
                                                 </tr>
                                             <?php } ?>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div><!-- .End .tab-pane -->
@@ -90,7 +89,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                       
                                             <?php $no = 1; 
                                             foreach ($data_pembayaran_kuliner as $key => $value) { ?>
                                                 <tr class ="text-center">
@@ -108,7 +107,7 @@
                                                     </td>
                                                 </tr>
                                             <?php } ?>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div><!-- .End .tab-pane -->
@@ -129,7 +128,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                       
                                             <?php $no = 1; 
                                             foreach ($data_pembayaran_souvenir as $key => $value) { ?>
                                                 <tr class ="text-center">
@@ -147,7 +146,7 @@
                                                     </td>
                                                 </tr>
                                             <?php } ?>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div><!-- .End .tab-pane -->
@@ -168,7 +167,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                      
                                             <?php $no = 1; 
                                             foreach ($data_pembayaran_karcis as $key => $value) { ?>
                                                 <tr class ="text-center">
@@ -186,7 +185,7 @@
                                                     </td>
                                                 </tr>
                                             <?php } ?>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div><!-- .End .tab-pane -->

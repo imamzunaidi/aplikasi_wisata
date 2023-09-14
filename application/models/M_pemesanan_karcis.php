@@ -9,8 +9,8 @@ class M_pemesanan_karcis extends CI_Model {
     public function get_all(){  
         $this->db->select('*');
         $this->db->from('tbl_pemesanan_karcis tp');
-        $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');
-        $this->db->where('status_pemesanan', 'lakukan pembayaran');
+        $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');   
+        $this->db->order_by('tp.id_pemesanan_karcis', 'desc');
         
         return $this->db->get()->result();
     }

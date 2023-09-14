@@ -72,6 +72,14 @@ $route['laporan-keterima'] = 'admin/data_keterima';
 $route['laporan-ketolak'] = 'admin/data_ketolak';
 $route['data-pesan'] = 'admin/data_pesan';
 $route['data-bank'] = 'admin/data_bank';
+$route['data-pemesanan-homestay'] = 'admin/data_pemesanan_homestay';
+$route['data-pemesanan-souvenir'] = 'admin/data_pemesanan_souvenir';
+$route['data-pemesanan-kuliner'] = 'admin/data_pemesanan_kuliner';
+$route['data-pemesanan-karcis'] = 'admin/data_pemesanan_karcis';
+$route['data-pembayaran-admin'] = 'admin/data_pembayaran';
+
+
+
 
 //pengunjung
 $route['home'] = 'home';

@@ -34,33 +34,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <?php $no = 1; 
-                                        foreach ($data_pemesanan_homestay as $key => $value) { ?>
-                                            <tr class ="text-center">
-                                                <td><?= $no++?></td>
-                                                <td><?= $value->nama_pemesan?></td>
-                                                <td><?= $value->nama_home_stay?></td>
-                                                <td><?= $value->no_telp_pemesan?></td>
-                                                <td><?= $value->nama_member?></td>
-                                                <td><?= $value->total_harga?></td>
-                                                <td><?= $value->tanggal_pemesan?></td>
-                                                <td><?= $value->status_pemesanan?></td>
-                                               
-                                                <td>
-                                                    <?php if( $value->status_pemesanan == 'lakukan pembayaran'){ ?>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_homestay/delete_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-danger btn-sm p-3"><i class="fas fa-trash"></i></a>
-                                                        <!-- <a href="<?= base_url('pengunjung/data_pemesanan_homestay/pembayaran/' . $value->id_pemesanan_homestay)?>" class="btn-custom btn-success btn-sm p-3"><i class="fas fa-hand-holding-usd"></i></i></a> -->
-                                                    <?php }else if( $value->status_pemesanan != 'menunggu konfirmasi'){ ?>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_homestay/pembayaran/' . $value->id_pemesanan_homestay)?>" class="btn-custom btn-success btn-sm p-3"><i class="fas fa-hand-holding-usd"></i></i></a>
-                                                    <?php } ?>
-                                                
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tr>
+                            
+                                    <?php $no = 1; 
+                                    foreach ($data_pemesanan_homestay as $key => $value) { ?>
+                                        <tr class ="text-center">
+                                            <td><?= $no++?></td>
+                                            <td><?= $value->nama_pemesan?></td>
+                                            <td><?= $value->nama_home_stay?></td>
+                                            <td><?= $value->no_telp_pemesan?></td>
+                                            <td><?= $value->nama_member?></td>
+                                            <td><?= $value->total_harga?></td>
+                                            <td><?= $value->tanggal_pemesan?></td>
+                                            <td><?= $value->status_pemesanan?></td>
+                                            
+                                            <td>
+                                                <?php if( $value->status_pemesanan == 'lakukan pembayaran'){ ?>
+                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                            
+                                                <?php }else if( $value->status_pemesanan != 'menunggu konfirmasi'){ ?>
+                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/pembayaran/' . $value->id_pemesanan_homestay)?>" class="btn-custom btn-success btn-sm p-3"><i class="fas fa-hand-holding-usd"></i></i></a>
+                                                <?php } ?>
+                                            
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
