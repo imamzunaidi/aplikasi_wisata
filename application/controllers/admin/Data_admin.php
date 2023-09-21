@@ -15,7 +15,11 @@ class Data_admin extends CI_Controller {
                     $this->flash_message->failed('Wajib Login Dulu', 'login');
                 }
                 break;
-            
+            case 'desa':
+                if($hak_akses != 'desa'){
+                    $this->flash_message->failed('Wajib Login Dulu', 'login');
+                }
+                break;
             default:
             $this->flash_message->failed('Wajib Login Dulu', 'login');
             break;

@@ -16,15 +16,15 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-primary">
-                        <a href="<?= base_url('data-pendaftaran')?>">
-                        <i class="fas fa-users"></i>
+                        <a href="<?= base_url('data-pemesanan-souvenir')?>">
+                        <i class="fas fa-shopping-bag"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                        <h4>Jumlah Pendaftar</h4>
+                        <h4>Pemesanan Souvenir</h4>
                         </div>
                         <div class="card-body">
-                           
+                           <?= $jumlah_pemesanan_souvenir?>
                         </div> </a>
                     </div>
                     </div>
@@ -32,15 +32,15 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <a href="<?= base_url('data-pesan')?>">
-                        <i class="fas fa-user-friends"></i>
+                        <a href="<?= base_url('data-pemesanan-homestay')?>">
+                        <i class="fas fa-bed"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                        <h4>Data Kontak</h4>
+                        <h4>Pemesanan Home Stay</h4>
                         </div>
                         <div class="card-body">
-                            
+                        <?= $jumlah_pemesanan_home_stay?>
                         </div>
                     </div></a>
                     </div>
@@ -48,15 +48,15 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-warning">
-                        <a href="<?= base_url('laporan-keterima')?>">
-                        <i class="fas fa-user-circle"></i>
+                        <a href="<?= base_url('data-pemesanan-karcis')?>">
+                        <i class="fas fa-money-check"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                        <h4>Data Siswa Keterima</h4>
+                        <h4>Pemesanan Karcis</h4>
                         </div>
                         <div class="card-body">
-                            
+                            <?= $jumlah_pemesanan_karcis?>
                         </div>
                     </div></a>
                     </div>
@@ -64,15 +64,15 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                     <div class="card-icon bg-success">
-                        <a href="<?= base_url('laporan-ketolak')?>">
-                        <i class="fas fa-bookmark"></i>
+                        <a href="<?= base_url('data-pemesanan-kuliner')?>">
+                        <i class="fas fa-hamburger"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                        <h4>Jumlah Siswa Ketolak</h4>
+                        <h4>Pemesanan Kuliner</h4>
                         </div>
                         <div class="card-body">
-                            
+                            <?= $jumlah_pemesanan_kuliner?>
                         </div>
                     </div></a>
                     </div>

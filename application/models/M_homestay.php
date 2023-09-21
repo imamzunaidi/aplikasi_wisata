@@ -20,7 +20,6 @@ public function get_limit($limit){
 
 }
 
-
 public function get_by_id($id_home_stay){
     $this->db->where('id_home_stay', $id_home_stay);
     return $this->db->get($this->table)->row();

@@ -4,8 +4,8 @@
 	            <div class="container">
 	            	<div class="row">
 	            		<div class="col-sm-6 col-lg-4">
-	            			<div class="widget widget-about">
-	            				<p>E-marketplace merupakan suatu sistem penjualan online yang mudah untuk digunakan dan dapat di jadikan sebagai usaha bagi orang yang ingin memulai usaha. </p>
+	            			<div class="widget widget-about text-justify">
+	            				<p>E-Paket wisata merupakan sebuah aplikasi untuk memperkenalkan pariwisata yang ada pada tempat sekitar sehingga masyarakat luas dapat mengetahui wisata yang ada disini </p>
 <!-- 
 	            				<div class="social-icons">
 	            					<a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>

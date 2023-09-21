@@ -6,6 +6,17 @@ class M_pembayaran extends CI_Model {
 
     private $table = 'tbl_pembayaran';
 
+    public function get_all(){  
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->order_by('tpb.id_pembayaran', 'desc');
+              
+        return $this->db->get()->result();
+    }
+
+
+
     public function get_all_homestay(){  
         $this->db->select('*');
         $this->db->from('tbl_pembayaran tpb');
@@ -152,6 +163,17 @@ class M_pembayaran extends CI_Model {
         return $this->db->get()->row();
     }
 
+    public function detail_riwayat_homestay($id_pemesanan_homestay){
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_home_stay tph', 'tph.id_pemesanan_homestay = tpb.id_pemesanan_homestay', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
+        $this->db->join('tbl_home_stay th', 'tph.id_home_stay = th.id_home_stay', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('tph.id_pemesanan_homestay', $id_pemesanan_homestay);
+        return $this->db->get()->row();
+    }
+
 
     public function detail_pembayaran_kuliner($id_pembayaran){
         $this->db->select('*');
@@ -160,6 +182,17 @@ class M_pembayaran extends CI_Model {
         $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
         $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
         $this->db->where('id_pembayaran', $id_pembayaran);
+        
+        return $this->db->get()->row();
+    }
+
+    public function detail_riwayat_kuliner($id_pemesanan_kuliner){
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_kuliner tph', 'tph.id_pemesanan_kuliner = tpb.id_pemesanan_kuliner', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('tph.id_pemesanan_kuliner', $id_pemesanan_kuliner);
         
         return $this->db->get()->row();
     }
@@ -182,6 +215,17 @@ class M_pembayaran extends CI_Model {
         $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
         $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
         $this->db->where('id_pembayaran', $id_pembayaran);
+        
+        return $this->db->get()->row();
+    }
+
+    public function detail_riwayat_karcis($id_pemesanan_karcis){
+        $this->db->select('*');
+        $this->db->from('tbl_pembayaran tpb');
+        $this->db->join('tbl_pemesanan_karcis tph', 'tph.id_pemesanan_karcis = tpb.id_pemesanan_karcis', 'inner');
+        $this->db->join('tbl_member tm', 'tm.id_member = tph.id_member', 'inner');
+        $this->db->join('tbl_bank tb', 'tb.id_bank = tpb.id_bank', 'inner');
+        $this->db->where('tph.id_pemesanan_karcis', $id_pemesanan_karcis);
         
         return $this->db->get()->row();
     }

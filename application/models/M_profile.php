@@ -1,4 +1,4 @@
-<?php class M_profile_sekolah extends CI_Model{
+<?php class M_profile extends CI_Model{
 
     private $table = 'tbl_profile';
 
@@ -6,13 +6,13 @@
         return $this->db->get($this->table)->row();
     }
 
-    public function update($data, $kd_profile_sekolah){
-        $this->db->where('kd_profile_sekolah', $kd_profile_sekolah);
+    public function update($data, $id_profile){
+        $this->db->where('id_profile', $id_profile);
         $this->db->update($this->table, $data);
     }
 
-    public function get_by_id($kd_profile_sekolah){
-        $this->db->where('kd_profile_sekolah', $kd_profile_sekolah);
+    public function get_by_id($id_profile){
+        $this->db->where('id_profile', $id_profile);
          return $this->db->get($this->table)->row();
     }
     // public function delete($kd_jurusan){

@@ -3,37 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_galeri extends CI_Controller {
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        if ($this->session->userdata('hak_akses') != 'admin') {
-            $hak_akses = $this->session->userdata('hak_akses');
+    public function __construct(){ 
+		parent::__construct(); 
+        $hak_akses = $this->session->userdata('hak_akses');
       
-            switch ($hak_akses) {
-                case 'admin':
-                    if($hak_akses != 'admin'){
-                        $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Gagal!!</strong> Anda Belum Login !!
-                        </div>');
-    
-                        redirect('login');
-                    }
-                    break;
-                
-                default:
-                    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Gagal!!</strong> Anda Belum Login !!
-                    </div>');
-
-                    redirect('login');
+        switch ($hak_akses) {
+            case 'admin':
+                if($hak_akses != 'admin'){
+                    $this->flash_message->failed('Wajib Login Dulu', 'login');
+                }
                 break;
-            }
-
+            case 'desa':
+                if($hak_akses != 'desa'){
+                    $this->flash_message->failed('Wajib Login Dulu', 'login');
+                }
+                break;
+            default:
+            $this->flash_message->failed('Wajib Login Dulu', 'login');
+            break;
         }
-    }
+	}
 
     public function index()
     {

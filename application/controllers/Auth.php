@@ -58,9 +58,6 @@ class Auth extends CI_Controller {
     }
 
 
-
- 
-
     public function pendaftaran(){
         $this->load->view('auth/v_pendaftaran');
     }
@@ -101,6 +98,37 @@ class Auth extends CI_Controller {
     }
 
 
+    public function profile()
+    {
+
+        $id_member = $this->session->userdata('id_member');
+
+        $data = array(
+            'title' => 'Data Profile',
+            'profile' => $this->M_auth->get_member($id_member),
+        );
+
+    
+        $this->templates->pengunjung('v_profile', $data);
+    }
+
+    public function update_profile(){
+
+        $id_member = $this->input->post('id_member', TRUE);
+     
+        $data = array(
+            'nama_member' => $this->input->post('nama_member', TRUE),
+            'username_member' => $this->input->post('username_member', TRUE),
+            'no_hp_member' => $this->input->post('no_hp_member', TRUE),
+            'email_member' => $this->input->post('email_member', TRUE),
+            'alamat_member' => $this->input->post('alamat_member', TRUE),
+            'username_member' => $this->input->post('username_member', TRUE),
+            'password_member' => md5($this->input->post('password_member', TRUE)),
+        );
+
+        $this->M_member->update($data, $id_member);
+        $this->flash_message->success('Update', 'profile');
+    }
 }
 
 

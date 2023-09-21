@@ -8,14 +8,15 @@ class Data_souvenir extends CI_Controller {
     public function __construct(){ 
 		parent::__construct(); 
         $hak_akses = $this->session->userdata('hak_akses');
-
-        if($hak_akses == ''){
-            $this->flash_message->failed('Wajib Login Dulu', 'login');
-        }
       
         switch ($hak_akses) {
             case 'admin':
                 if($hak_akses != 'admin'){
+                    $this->flash_message->failed('Wajib Login Dulu', 'login');
+                }
+                break;
+            case 'desa':
+                if($hak_akses != 'desa'){
                     $this->flash_message->failed('Wajib Login Dulu', 'login');
                 }
                 break;

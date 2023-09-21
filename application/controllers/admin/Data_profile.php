@@ -3,7 +3,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Data_profile_sekolah extends CI_Controller {
+class Data_profile extends CI_Controller {
 
     public function __construct(){ 
 		parent::__construct(); 
@@ -12,6 +12,11 @@ class Data_profile_sekolah extends CI_Controller {
         switch ($hak_akses) {
             case 'admin':
                 if($hak_akses != 'admin'){
+                    $this->flash_message->failed('Wajib Login Dulu', 'login');
+                }
+                break;
+            case 'desa':
+                if($hak_akses != 'desa'){
                     $this->flash_message->failed('Wajib Login Dulu', 'login');
                 }
                 break;
@@ -25,24 +30,23 @@ class Data_profile_sekolah extends CI_Controller {
     {
         $data = array(
             'title' => 'Data Profile Sekolah',
-            'profile_sekolah' => $this->M_profile_sekolah->get_all(),
+            'profile' => $this->M_profile->get_all(),
         );
 
         $this->templates->admin('v_data_profile', $data);
     }
 
     public function update(){
-        $kd_profile_sekolah = $this->input->post('kd_profile_sekolah', TRUE);
-        $profile_sekolah = $this->M_profile_sekolah->get_by_id($kd_profile_sekolah);
-        $data_hapus = $profile_sekolah->gambar_sekolah;
+        $id_profile = $this->input->post('id_profile', TRUE);
+        $profile = $this->M_profile->get_by_id($id_profile);
+        $data_hapus = $profile->gambar;
 
         $gambar= $_FILES['gambar']['name'];
 
-        $result_foto = $this->upload_foto->update($gambar,'gambar','profile_sekolah',$data_hapus);
+        $result_foto = $this->upload_foto->update($gambar,'gambar','profile',$data_hapus);
 
         if($result_foto == NULL){
             $data = array(
-                'nama_sekolah' => $this->input->post('nama_sekolah', TRUE),
                 'visi' => $this->input->post('visi', TRUE),
                 'email' => $this->input->post('email', TRUE),
                 'misi' => $this->input->post('misi', TRUE),
@@ -51,11 +55,9 @@ class Data_profile_sekolah extends CI_Controller {
                 'facebook' => $this->input->post('facebook', TRUE),
                 'alamat' => $this->input->post('alamat', TRUE),
                 'instagram' => $this->input->post('instagram', TRUE),
-                'kd_admin' => $this->session->userdata('id_users'),
             );
         }else{
             $data = array(
-                'nama_sekolah' => $this->input->post('nama_sekolah', TRUE),
                 'visi' => $this->input->post('visi', TRUE),
                 'email' => $this->input->post('email', TRUE),
                 'misi' => $this->input->post('misi', TRUE),
@@ -63,14 +65,13 @@ class Data_profile_sekolah extends CI_Controller {
                 'deskripsi' => $this->input->post('deskripsi', TRUE),
                 'facebook' => $this->input->post('facebook', TRUE),
                 'instagram' => $this->input->post('instagram', TRUE),
-                'kd_admin' => $this->session->userdata('id_users'),
                 'alamat' => $this->input->post('alamat', TRUE),
-                'gambar_sekolah' => $result_foto,
+                'gambar' => $result_foto,
             );
         }
-
-        $this->M_profile_sekolah->update($data, $kd_profile_sekolah);
-        $this->flash_message->success('Update', 'data-profile-sekolah');
+        
+        $this->M_profile->update($data, $id_profile);
+        $this->flash_message->success('Update', 'data-profile');
        
     }
 

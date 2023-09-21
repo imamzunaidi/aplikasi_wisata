@@ -19,23 +19,16 @@
                     }
                 }
             }'>
-            <div class="intro-slide" style=" background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .2)), url(<?= base_url('assets_pengunjung/')?>assets/images/bg-hero.jpg);">
+            <div class="intro-slide" style=" background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .2)), url(<?= base_url('assets_pengunjung/')?>assets/images/gambar1.jpeg);">
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-third">Deals and Promotions</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Beats by</h1>
-                            <h1 class="intro-title">Dre Studio 3</h1><!-- End .intro-title -->
+                            <h3 class="intro-subtitle text-third"  style = "color: white;">Paket Wisata</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title" style = "color: white;">Cintai</h1>
+                            <h1 class="intro-title"  style = "color: white;">Pariwisata di Sekitar Kita</h1><!-- End .intro-title -->
 
-                            <div class="intro-price">
-                                <sup class="intro-old-price">$349,95</sup>
-                                <span class="text-third">
-                                    $279<sup>.99</sup>
-                                </span>
-                            </div><!-- End .intro-price -->
-
-                            <a href="category.html" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                            <a href="<?= base_url('home-stay')?>" class="btn btn-primary btn-round">
+                                <span>Home Stay</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                         </div><!-- End .col-lg-11 offset-lg-1 -->
@@ -47,18 +40,11 @@
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Apple iPad Pro <br>12.9 Inch, 64GB </h1><!-- End .intro-title -->
-
-                            <div class="intro-price">
-                                <sup>Today:</sup>
-                                <span class="text-primary">
-                                    $999<sup>.99</sup>
-                                </span>
-                            </div><!-- End .intro-price -->
-
-                            <a href="category.html" class="btn btn-primary btn-round">
-                                <span>Shop More</span>
+                            <h3 class="intro-subtitle text-primary">Dapatkan</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title"  style = "color: white;">Souvenir Cantik  </h1><!-- End .intro-title -->
+                            <h1 class="intro-title"  style = "color: white;">Segera Beli</h1>
+                            <a href="<?= base_url('souvenir')?>" class="btn btn-primary btn-round">
+                                <span>Souvenir</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
                         </div><!-- End .col-md-6 offset-md-6 -->
@@ -74,12 +60,12 @@
         <div class="row">
             <div class="col-lg-6 mb-3 mb-lg-0">
                 <h2 class="title">Our Vision</h2><!-- End .title -->
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. </p>
+                <p><?= $profile->visi?> </p>
             </div><!-- End .col-lg-6 -->
             
             <div class="col-lg-6">
                 <h2 class="title">Our Mission</h2><!-- End .title -->
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. <br>Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p>
+                <p><?= $profile->misi?> </p>
             </div><!-- End .col-lg-6 -->
         </div>
         <div class="mb-5"></div><!-- End .mb-4 -->
@@ -88,19 +74,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 mb-3 mb-lg-0">
-                    <h2 class="title">Who We Are</h2><!-- End .title -->
-                    <p class="lead text-primary mb-3">Pellentesque odio nisi, euismod pharetra a ultricies <br>in diam. Sed arcu. Cras consequat</p><!-- End .lead text-primary -->
-                    <p class="mb-2">Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue. </p>
+                    <h2 class="title">Abot Me</h2><!-- End .title -->
+                    <p class="mb-2"> <?= $profile->deskripsi ?> </p>
 
-                    <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
+                    <!-- <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                         <span>VIEW OUR NEWS</span>
                         <i class="icon-long-arrow-right"></i>
-                    </a>
+                    </a> -->
                 </div><!-- End .col-lg-5 -->
 
                 <div class="col-lg-6 offset-lg-1">
                     <div class="about-images">
-                        <img src="<?= base_url('assets_pengunjung/assets/images/bg-hero.jpg')?>" alt="" class="about-img-front">
+                        <img src="<?= base_url('assets/img/profile/'.$profile->gambar)?>" alt="" class="about-img-front">
                
                     </div><!-- End .about-images -->
                 </div><!-- End .col-lg-6 -->
@@ -302,60 +287,4 @@
         <hr class="mb-0">
     </div><!-- End .container -->
 
-    <div class="icon-boxes-container bg-transparent">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="icon-box icon-box-side">
-                        <span class="icon-box-icon text-dark">
-                            <i class="icon-rocket"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Free Shipping</h3><!-- End .icon-box-title -->
-                            <p>Orders $50 or more</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-sm-6 col-lg-3 -->
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="icon-box icon-box-side">
-                        <span class="icon-box-icon text-dark">
-                            <i class="icon-rotate-left"></i>
-                        </span>
-
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Free Returns</h3><!-- End .icon-box-title -->
-                            <p>Within 30 days</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-sm-6 col-lg-3 -->
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="icon-box icon-box-side">
-                        <span class="icon-box-icon text-dark">
-                            <i class="icon-info-circle"></i>
-                        </span>
-
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">Get 20% Off 1 Item</h3><!-- End .icon-box-title -->
-                            <p>when you sign up</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-sm-6 col-lg-3 -->
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="icon-box icon-box-side">
-                        <span class="icon-box-icon text-dark">
-                            <i class="icon-life-ring"></i>
-                        </span>
-
-                        <div class="icon-box-content">
-                            <h3 class="icon-box-title">We Support</h3><!-- End .icon-box-title -->
-                            <p>24/7 amazing services</p>
-                        </div><!-- End .icon-box-content -->
-                    </div><!-- End .icon-box -->
-                </div><!-- End .col-sm-6 col-lg-3 -->
-            </div><!-- End .row -->
-        </div><!-- End .container -->
-    </div><!-- End .icon-boxes-container -->
 </main><!-- End .main -->

@@ -27,4 +27,9 @@
             return null;
         }
     }
+
+    public function get_member($id)
+    {
+        return $this->db->get_where('tbl_member', ['id_member' => $id])->row();
+    }
 }

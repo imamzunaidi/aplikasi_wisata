@@ -13,11 +13,7 @@ class Home extends CI_Controller {
             'data_souvenir' => $this->M_souvenir->get_limit(8),
             'data_kuliner' => $this->M_kuliner->get_limit(4),
             'data_karcis' => $this->M_karcis->get_limit(8),
-            // 'galeri' => $this->M_galeri->get_all(),
-            // 'profile' => $this->M_profile_sekolah->get_all(),
-            // 'alur' => $this->M_alur->get_all(),
-            // 'data_informasi' => $this->M_informasi->get_all(),
-            // 'data_pendaftar' => $this->M_berkas_siswa->get_all(),
+            'profile' => $this->M_profile->get_all(),
         );
         $this->templates->pengunjung('v_home', $data);
     }

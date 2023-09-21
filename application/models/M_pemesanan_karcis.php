@@ -27,6 +27,16 @@ class M_pemesanan_karcis extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function get_riwayat($id_member){  
+        $this->db->select('*');
+        $this->db->from('tbl_pemesanan_karcis tp');
+        $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');
+        $this->db->where_in('status_pemesanan', ['lakukan pembayaran', 'lunas']);
+        $this->db->where('tm.id_member', $id_member);
+
+        return $this->db->get()->result();
+    }
+
     public function detail($id_pemesanan_karcis){  
         $this->db->select('*');
         $this->db->from('tbl_pemesanan_karcis tp');

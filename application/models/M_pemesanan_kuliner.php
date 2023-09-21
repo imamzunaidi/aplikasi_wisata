@@ -15,8 +15,16 @@ class M_pemesanan_kuliner extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function get_riwayat($id_member){  
+        $this->db->select('*');
+        $this->db->from('tbl_pemesanan_kuliner tp');
+        $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');
+        $this->db->where_in('status_pemesanan', ['lakukan pembayaran', 'lunas']);
+        $this->db->where('tm.id_member', $id_member);
 
-    
+        return $this->db->get()->result();
+    }
+
     public function get_member($id_member){  
         $this->db->select('*');
         $this->db->from('tbl_pemesanan_kuliner tp');

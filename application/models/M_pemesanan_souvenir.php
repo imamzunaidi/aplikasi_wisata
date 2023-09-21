@@ -20,7 +20,17 @@ class M_pemesanan_souvenir extends CI_Model {
         $this->db->select('*');
         $this->db->from('tbl_pemesanan_souvenir tp');
         $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');
-        $this->db->where('status_pemesanan', 'lakukan pembayaran');
+        $this->db->where_in('status_pemesanan', ['lakukan pembayaran', 'lunas']);
+        $this->db->where('tm.id_member', $id_member);
+        
+        return $this->db->get()->result();
+    }
+
+    public function get_riwayat($id_member){  
+        $this->db->select('*');
+        $this->db->from('tbl_pemesanan_souvenir tp');
+        $this->db->join('tbl_member tm', 'tm.id_member = tp.id_member', 'inner');
+        $this->db->where_in('status_pemesanan', ['lakukan pembayaran', 'lunas']);
         $this->db->where('tm.id_member', $id_member);
         
         return $this->db->get()->result();

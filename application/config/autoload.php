@@ -145,7 +145,7 @@ $autoload['model'] = array(
     'M_auth',
     'M_admin',
     'M_member',
-    'M_profile_sekolah',
+    'M_profile',
     'M_galeri',
     'M_alur',
     'M_informasi',

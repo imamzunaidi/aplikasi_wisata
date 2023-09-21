@@ -48,8 +48,8 @@
                   <ul class="dropdown-menu">
                     <li class="<?php if($halaman == 'data-profile'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-profile')?>">Data Profile</a></li>
                     <li class="<?php if($halaman == 'data-galeri'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-galeri')?>">Data Galeri</a></li>
-                    <li class="<?php if($halaman == 'data-alur'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-alur')?>">Data Alur</a></li>
-                    <li class="<?php if($halaman == 'data-informasi'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-informasi')?>">Data Informasi</a></li>
+                    <!-- <li class="<?php if($halaman == 'data-alur'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-alur')?>">Data Alur</a></li> -->
+                    <!-- <li class="<?php if($halaman == 'data-informasi'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-informasi')?>">Data Informasi</a></li> -->
                   </ul>
                 </li>
                 <li class="nav-item dropdown <?php if($halaman == 'data-admin' ||$halaman == 'data-admin-desa' ||  $halaman == 'data-member' ){echo 'active';}?>">
@@ -82,12 +82,39 @@
                 <li class="nav-item dropdown <?php if($halaman == 'laporan-pemesanan' ||$halaman == 'laporan-kunjungan'){echo 'active';}?>">
                   <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Laporan</span></a>
                   <ul class="dropdown-menu">
-                    <li class="<?php if($halaman == 'laporan-pemesanan'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('laporan-pemesanan')?>">Laporan Pemesanan</a></li>
-                    <li class="<?php if($halaman == 'laporan-kunjungan'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('laporan-kunjungan')?>">Laporan Kunjungan</a></li>
+                    <li class="<?php if($halaman == 'laporan-pembayaran'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('laporan-pembayaran')?>">Laporan Pembayaran</a></li>
+                    <!-- <li class="<?php if($halaman == 'laporan-kunjungan'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('laporan-kunjungan')?>">Laporan Kunjungan</a></li> -->
                   </ul>
                 </li>
               </ul>
 
+            <?php }else{ ?>
+              <ul class="sidebar-menu mt-3">
+                <li class="menu-header">Dashboard</li>
+                <?php $halaman = $this->uri->segment('1'); ?>
+                <li><a class="nav-link" href="<?= base_url('dashboard')?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+                <li class="menu-header">Pengolahan Data Pemesanan</li>
+                <li class="nav-item dropdown <?php if($halaman == 'data-pemesanan-homestay' || $halaman == 'data-pemesanan-souvenir' || $halaman == 'data-pemesanan-kuliner' || $halaman == 'data-pemesanan-karcis'){echo 'active';}?>">
+                  <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Pemesanan</span></a>
+                  <ul class="dropdown-menu">
+                    <li class="<?php if($halaman == 'data-pemesanan-homestay'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-homestay')?>">Pemesanan Home Stay</a></li>
+                    <li class="<?php if($halaman == 'data-pemesanan-souvenir'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-souvenir')?>">Pemesanan Souvenir</a></li>
+                    <li class="<?php if($halaman == 'data-pemesanan-kuliner'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-kuliner')?>">Pemesanan Kuliner</a></li>
+                    <li class="<?php if($halaman == 'data-pemesanan-karcis'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pemesanan-karcis')?>">Pemesanan Karcis</a></li>
+                  </ul>
+                </li>
+                <!-- <li class = "<?php if($halaman == 'data-checkin-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-checkin-admin')?>"><i class="fas fa-bell"></i> <span>Data Check In</span></a></li>
+                <li class = "<?php if($halaman == 'data-checkout-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-chcekout-admin')?>"><i class="fas fa-calendar-check"></i> <span>Data Check Out</span></a></li> -->
+                <li class = "<?php if($halaman == 'data-pembayaran-admin'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('data-pembayaran-admin')?>"><i class="fas fa-credit-card"></i><span>Data Pembayaran</span></a></li>
+                <li class="menu-header">Data Laporan</li>
+                <li class="nav-item dropdown <?php if($halaman == 'laporan-pemesanan' ||$halaman == 'laporan-kunjungan'){echo 'active';}?>">
+                  <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Data Laporan</span></a>
+                  <ul class="dropdown-menu">
+                    <li class="<?php if($halaman == 'laporan-pembayaran'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('laporan-pembayaran')?>">Laporan Pembayaran</a></li>
+                    <!-- <li class="<?php if($halaman == 'laporan-kunjungan'){echo 'active';}?>"><a class="nav-link" href="<?= base_url('laporan-kunjungan')?>">Laporan Kunjungan</a></li> -->
+                  </ul>
+                </li>
+              </ul>
             <?php } ?>
         </aside>
       </div>

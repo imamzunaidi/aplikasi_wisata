@@ -63,7 +63,7 @@ $route['data-admin-desa'] = 'admin/data_admin_desa';
 $route['data-kuliner-admin'] = 'admin/Data_kuliner';
 $route['data-galeri'] = 'admin/data_galeri';
 $route['data-alur'] = 'admin/data_alur';
-$route['data-profile'] = 'admin/data_profile_sekolah';
+$route['data-profile'] = 'admin/data_profile';
 $route['data-home-stay-admin'] = 'admin/data_homestay';
 $route['data-souvenir-admin'] = 'admin/data_souvenir';
 $route['data-karcis-admin'] = 'admin/data_karcis';
@@ -77,7 +77,7 @@ $route['data-pemesanan-souvenir'] = 'admin/data_pemesanan_souvenir';
 $route['data-pemesanan-kuliner'] = 'admin/data_pemesanan_kuliner';
 $route['data-pemesanan-karcis'] = 'admin/data_pemesanan_karcis';
 $route['data-pembayaran-admin'] = 'admin/data_pembayaran';
-
+$route['laporan-pembayaran'] = 'admin/laporan_pembayaran';
 
 
 
@@ -95,7 +95,15 @@ $route['pembayaran'] = 'pengunjung/Data_pembayaran';
 $route['riwayat-homestay'] = 'pengunjung/Data_riwayat_homestay';
 $route['riwayat-kuliner'] = 'pengunjung/Data_riwayat_kuliner';
 $route['riwayat-karcis'] = 'pengunjung/Data_riwayat_karcis';
-$route['riwayat-souvenir'] = 'pengunjung/Data_riwayat_souvenir';
+$route['riwayat-pesanan-souvenir'] = 'pengunjung/Data_riwayat_souvenir';
+$route['riwayat-pesanan-karcis'] = 'pengunjung/Data_riwayat_karcis';
+$route['riwayat-pesanan-kuliner'] = 'pengunjung/Data_riwayat_kuliner';
+$route['profile'] = 'Auth/profile';
+
+
+
+
+
 
 
 
