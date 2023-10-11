@@ -59,6 +59,21 @@ class Data_pemesanan_homestay extends CI_Controller {
     }
 
 
+    public function update(){
+
+        $id_pemesanan_homestay = $this->input->post('id_pemesanan_homestay', TRUE);
+       
+        $data = array(
+            'status_pemesanan' => $this->input->post('status_pemesanan', TRUE),
+        );
+
+        $this->M_pemesanan_home_stay->update($data, $id_pemesanan_homestay);
+
+        $this->flash_message->success('Konfirmasi', 'data-pemesanan-homestay');
+        
+    }
+
+
 }
 
 /* End of file Data_kategori.php */

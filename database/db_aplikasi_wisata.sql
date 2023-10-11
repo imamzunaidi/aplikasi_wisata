@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2023 at 06:14 PM
+-- Generation Time: Oct 11, 2023 at 05:03 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -306,7 +306,8 @@ INSERT INTO `tbl_pembayaran` (`id_pembayaran`, `pembayaran`, `bukti_bayar`, `id_
 (5, 84800, 'pembayaran-130920234e5345dc3d.jpg', 1, 'Pembayaran Souvenir', NULL, '2023-09-13 14:21:56', NULL, 1, NULL),
 (6, 24000, 'pembayaran-13092023bae0ae6120.jpg', 3, 'Pembayaran Karcis', NULL, '2023-09-13 15:05:30', NULL, NULL, 1),
 (7, 46000, 'pembayaran-14092023a816282530.jpg', 3, 'Pembayaran Kuliner', NULL, '2023-09-14 16:01:29', 3, NULL, NULL),
-(8, 58000, 'pembayaran-16092023bc9a002bfc.jpg', 3, 'Pembayaran Kuliner', NULL, '2023-09-16 12:21:59', 4, NULL, NULL);
+(8, 58000, 'pembayaran-16092023bc9a002bfc.jpg', 3, 'Pembayaran Kuliner', NULL, '2023-09-16 12:21:59', 4, NULL, NULL),
+(9, 120000, 'pembayaran-11102023cf1ceeb6cf.jpg', 3, 'Pembayaran Homestay', 3, '2023-10-11 14:59:18', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -325,7 +326,7 @@ CREATE TABLE `tbl_pemesanan_home_stay` (
   `id_home_stay` int(11) NOT NULL,
   `id_member` int(11) NOT NULL,
   `tanggal_pemesan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status_pemesanan` enum('lakukan pembayaran','lunas','menunggu konfirmasi') NOT NULL,
+  `status_pemesanan` enum('lakukan pembayaran','lunas','menunggu konfirmasi','penuh') NOT NULL,
   `total_harga` int(11) DEFAULT NULL,
   `jumlah_hari` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -336,7 +337,8 @@ CREATE TABLE `tbl_pemesanan_home_stay` (
 
 INSERT INTO `tbl_pemesanan_home_stay` (`id_pemesanan_homestay`, `nama_pemesan`, `no_telp_pemesan`, `email_pemesan`, `check_in`, `check_out`, `keterangan_tambahan`, `id_home_stay`, `id_member`, `tanggal_pemesan`, `status_pemesanan`, `total_harga`, `jumlah_hari`) VALUES
 (2, 'saya', '54235235', 'saya@gmail.com', '2023-08-30', '2023-08-31', 'tests', 2, 2, '2023-09-14 15:20:23', 'lunas', 120000, 1),
-(3, 'saya', '54235235', 'saya@gmail.com', '2023-09-14', '2023-09-15', 'sadsad', 2, 2, '2023-09-14 15:16:23', 'lakukan pembayaran', 120000, 1);
+(5, 'sayasdf dsf', '54235235', 'saya@gmail.com', '2023-10-02', '2023-10-24', 'sdfdsfdsf', 2, 2, '2023-10-11 15:00:39', 'penuh', 2640000, 22),
+(6, 'sayasdf dsf', '54235235', 'saya@gmail.com', '2023-10-11', '2023-10-12', '', 2, 2, '2023-10-11 15:00:55', 'menunggu konfirmasi', 120000, 1);
 
 -- --------------------------------------------------------
 
@@ -736,13 +738,13 @@ ALTER TABLE `tbl_member`
 -- AUTO_INCREMENT for table `tbl_pembayaran`
 --
 ALTER TABLE `tbl_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_pemesanan_home_stay`
 --
 ALTER TABLE `tbl_pemesanan_home_stay`
-  MODIFY `id_pemesanan_homestay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pemesanan_homestay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_pemesanan_karcis`

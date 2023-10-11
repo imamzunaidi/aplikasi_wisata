@@ -48,14 +48,12 @@
                                             <td><?= $value->status_pemesanan?></td>
                                             
                                             <td>
-                                                <?php if( $value->status_pemesanan == 'lakukan pembayaran'){ ?>
-                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                                <?php if( $value->status_pemesanan == 'menunggu konfirmasi'){ ?>
+                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/delete_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-danger btn-sm p-3"><i class="fas fa-trash"></i></a>
                                             
-                                                <?php }else if( $value->status_pemesanan != 'menunggu konfirmasi'){ ?>
-                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
-                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/pembayaran/' . $value->id_pemesanan_homestay)?>" class="btn-custom btn-success btn-sm p-3"><i class="fas fa-hand-holding-usd"></i></i></a>
-                                                <?php } ?>
-                                            
+                                                <?php }?>
+                                                <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                              
                                             </td>
                                         </tr>
                                     <?php } ?>
