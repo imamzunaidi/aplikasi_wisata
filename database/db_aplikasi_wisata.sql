@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2023 at 05:03 PM
+-- Generation Time: Oct 17, 2023 at 06:10 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -87,7 +87,10 @@ CREATE TABLE `tbl_detail_pemesanan_karcis` (
 --
 
 INSERT INTO `tbl_detail_pemesanan_karcis` (`id_detail_pemesanan_karcis`, `id_karcis`, `id_pemesanan_karcis`, `subtotal`, `qty`) VALUES
-(1, 1, 1, 12000, 1);
+(1, 1, 1, 12000, 1),
+(2, 1, 2, 36000, 3),
+(3, 1, 3, 12000, 1),
+(4, 1, 4, 12000, 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,10 @@ INSERT INTO `tbl_detail_pemesanan_kuliner` (`id_detail_pemesanan_kuliner`, `id_k
 (4, 2, 2, 6000, 3),
 (5, 1, 3, 23000, 1),
 (6, 1, 4, 23000, 1),
-(7, 2, 4, 6000, 3);
+(7, 2, 4, 6000, 3),
+(8, 1, 5, 23000, 1),
+(9, 2, 5, 2000, 1),
+(10, 1, 6, 23000, 1);
 
 -- --------------------------------------------------------
 
@@ -137,7 +143,8 @@ INSERT INTO `tbl_detail_pemesanan_souvenir` (`id_detail_pemesanan_souvenir`, `id
 (2, 3, 1, 400, 2),
 (3, 4, 1, 40000, 4),
 (4, 1, 2, 2000, 1),
-(5, 3, 2, 400, 2);
+(5, 3, 2, 400, 2),
+(6, 4, 3, 10000, 1);
 
 -- --------------------------------------------------------
 
@@ -175,16 +182,17 @@ CREATE TABLE `tbl_home_stay` (
   `maximal_home_stay` int(11) NOT NULL,
   `deskripsi_home_stay` varchar(255) NOT NULL,
   `gambar_home_stay` varchar(255) NOT NULL,
-  `alamat_home_stay` varchar(255) NOT NULL
+  `alamat_home_stay` varchar(255) NOT NULL,
+  `status_home_stay` enum('tersedia','tidak tersedia') DEFAULT 'tersedia'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_home_stay`
 --
 
-INSERT INTO `tbl_home_stay` (`id_home_stay`, `nama_home_stay`, `harga_home_stay`, `maximal_home_stay`, `deskripsi_home_stay`, `gambar_home_stay`, `alamat_home_stay`) VALUES
-(2, 'tstvsdfds dsf dsf sd', 120000, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', 'homestay-19082023a44d98178a.jpg', 'fssdf'),
-(3, 'Home Stay 3', 20000, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', 'homestay-19082023e1ce6d7b9e.jpg', 'prindavan sana sini');
+INSERT INTO `tbl_home_stay` (`id_home_stay`, `nama_home_stay`, `harga_home_stay`, `maximal_home_stay`, `deskripsi_home_stay`, `gambar_home_stay`, `alamat_home_stay`, `status_home_stay`) VALUES
+(2, 'tstvsdfds dsf dsf sd', 120000, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', 'homestay-19082023a44d98178a.jpg', 'fssdf', 'tersedia'),
+(3, 'Home Stay 3', 20000, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i', 'homestay-19082023e1ce6d7b9e.jpg', 'prindavan sana sini', 'tersedia');
 
 -- --------------------------------------------------------
 
@@ -307,7 +315,9 @@ INSERT INTO `tbl_pembayaran` (`id_pembayaran`, `pembayaran`, `bukti_bayar`, `id_
 (6, 24000, 'pembayaran-13092023bae0ae6120.jpg', 3, 'Pembayaran Karcis', NULL, '2023-09-13 15:05:30', NULL, NULL, 1),
 (7, 46000, 'pembayaran-14092023a816282530.jpg', 3, 'Pembayaran Kuliner', NULL, '2023-09-14 16:01:29', 3, NULL, NULL),
 (8, 58000, 'pembayaran-16092023bc9a002bfc.jpg', 3, 'Pembayaran Kuliner', NULL, '2023-09-16 12:21:59', 4, NULL, NULL),
-(9, 120000, 'pembayaran-11102023cf1ceeb6cf.jpg', 3, 'Pembayaran Homestay', 3, '2023-10-11 14:59:18', NULL, NULL, NULL);
+(9, 120000, 'pembayaran-11102023cf1ceeb6cf.jpg', 3, 'Pembayaran Homestay', 3, '2023-10-11 14:59:18', NULL, NULL, NULL),
+(10, 72000, 'pembayaran-171020233f77b969e7.jpg', 3, 'Pembayaran Karcis', NULL, '2023-10-17 15:13:37', NULL, NULL, 2),
+(11, 24000, 'pembayaran-17102023fc5c51c578.jpg', 1, 'Pembayaran Karcis', NULL, '2023-10-17 15:20:10', NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -325,7 +335,8 @@ CREATE TABLE `tbl_pemesanan_home_stay` (
   `keterangan_tambahan` varchar(255) NOT NULL,
   `id_home_stay` int(11) NOT NULL,
   `id_member` int(11) NOT NULL,
-  `tanggal_pemesan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tanggal_pemesan` datetime DEFAULT NULL,
+  `batas_pemesanan` datetime DEFAULT NULL,
   `status_pemesanan` enum('lakukan pembayaran','lunas','menunggu konfirmasi','penuh') NOT NULL,
   `total_harga` int(11) DEFAULT NULL,
   `jumlah_hari` int(11) DEFAULT NULL
@@ -335,10 +346,10 @@ CREATE TABLE `tbl_pemesanan_home_stay` (
 -- Dumping data for table `tbl_pemesanan_home_stay`
 --
 
-INSERT INTO `tbl_pemesanan_home_stay` (`id_pemesanan_homestay`, `nama_pemesan`, `no_telp_pemesan`, `email_pemesan`, `check_in`, `check_out`, `keterangan_tambahan`, `id_home_stay`, `id_member`, `tanggal_pemesan`, `status_pemesanan`, `total_harga`, `jumlah_hari`) VALUES
-(2, 'saya', '54235235', 'saya@gmail.com', '2023-08-30', '2023-08-31', 'tests', 2, 2, '2023-09-14 15:20:23', 'lunas', 120000, 1),
-(5, 'sayasdf dsf', '54235235', 'saya@gmail.com', '2023-10-02', '2023-10-24', 'sdfdsfdsf', 2, 2, '2023-10-11 15:00:39', 'penuh', 2640000, 22),
-(6, 'sayasdf dsf', '54235235', 'saya@gmail.com', '2023-10-11', '2023-10-12', '', 2, 2, '2023-10-11 15:00:55', 'menunggu konfirmasi', 120000, 1);
+INSERT INTO `tbl_pemesanan_home_stay` (`id_pemesanan_homestay`, `nama_pemesan`, `no_telp_pemesan`, `email_pemesan`, `check_in`, `check_out`, `keterangan_tambahan`, `id_home_stay`, `id_member`, `tanggal_pemesan`, `batas_pemesanan`, `status_pemesanan`, `total_harga`, `jumlah_hari`) VALUES
+(2, 'saya', '54235235', 'saya@gmail.com', '2023-08-30', '2023-08-31', 'tests', 2, 2, '2023-09-14 22:20:23', NULL, 'lunas', 120000, 1),
+(5, 'sayasdf dsf', '54235235', 'saya@gmail.com', '2023-10-02', '2023-10-24', 'sdfdsfdsf', 2, 2, '2023-10-11 22:00:39', '2023-10-18 22:00:56', 'penuh', 2640000, 22),
+(7, 'sayasdf dsf', '54235235', 'saya@gmail.com', '2023-10-17', '2023-10-18', 'dsfsdf', 3, 2, '2023-10-17 21:53:13', '2023-10-18 21:53:13', 'menunggu konfirmasi', 20000, 1);
 
 -- --------------------------------------------------------
 
@@ -354,15 +365,18 @@ CREATE TABLE `tbl_pemesanan_karcis` (
   `total_harga` int(11) NOT NULL,
   `keterangan_tambahan` varchar(255) DEFAULT NULL,
   `status_pemesanan` enum('lakukan pembayaran','lunas','menunggu konfirmasi') NOT NULL,
-  `tanggal_pemesanan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tanggal_pemesanan` datetime DEFAULT NULL,
+  `batas_pemesanan` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pemesanan_karcis`
 --
 
-INSERT INTO `tbl_pemesanan_karcis` (`id_pemesanan_karcis`, `id_member`, `nama_pemesan`, `no_telp_pemesan`, `total_harga`, `keterangan_tambahan`, `status_pemesanan`, `tanggal_pemesanan`) VALUES
-(1, 2, 'saya', '54235235', 24000, 'dsfdsf', 'lunas', '2023-09-14 16:05:54');
+INSERT INTO `tbl_pemesanan_karcis` (`id_pemesanan_karcis`, `id_member`, `nama_pemesan`, `no_telp_pemesan`, `total_harga`, `keterangan_tambahan`, `status_pemesanan`, `tanggal_pemesanan`, `batas_pemesanan`) VALUES
+(1, 2, 'saya', '54235235', 24000, 'dsfdsf', 'lunas', '2023-09-14 23:05:54', NULL),
+(3, 2, 'sayasdf dsf', '54235235', 24000, '', 'lunas', '2023-10-17 22:19:58', '2023-10-18 22:19:58'),
+(4, 2, 'sayasdf dsf', '54235235', 24000, '', 'lakukan pembayaran', '2023-10-17 22:20:31', '1900-01-24 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -378,17 +392,20 @@ CREATE TABLE `tbl_pemesanan_kuliner` (
   `total_harga` int(11) NOT NULL,
   `keterangan_tambahan` varchar(255) NOT NULL,
   `status_pemesanan` enum('lakukan pembayaran','lunas','menunggu konfirmasi') NOT NULL,
-  `tanggal_pemesanan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tanggal_pemesanan` datetime DEFAULT NULL,
+  `batas_pemesanan` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pemesanan_kuliner`
 --
 
-INSERT INTO `tbl_pemesanan_kuliner` (`id_pemesanan_kuliner`, `id_member`, `nama_pemesan`, `no_telp_pemesan`, `total_harga`, `keterangan_tambahan`, `status_pemesanan`, `tanggal_pemesanan`) VALUES
-(2, 2, 'saya', '54235235', 58000, 'gvdgfdg', 'lunas', '2023-09-12 15:56:48'),
-(3, 2, 'saya', '54235235', 46000, '', 'lunas', '2023-09-14 16:02:09'),
-(4, 2, 'saya', '54235235', 58000, 'dfgdfgdfg', 'lunas', '2023-09-16 12:24:47');
+INSERT INTO `tbl_pemesanan_kuliner` (`id_pemesanan_kuliner`, `id_member`, `nama_pemesan`, `no_telp_pemesan`, `total_harga`, `keterangan_tambahan`, `status_pemesanan`, `tanggal_pemesanan`, `batas_pemesanan`) VALUES
+(2, 2, 'saya', '54235235', 58000, 'gvdgfdg', 'lunas', '2023-09-12 22:56:48', NULL),
+(3, 2, 'saya', '54235235', 46000, '', 'lunas', '2023-09-14 23:02:09', NULL),
+(4, 2, 'saya', '54235235', 58000, 'dfgdfgdfg', 'lunas', '2023-09-16 19:24:47', NULL),
+(5, 2, 'sayasdf dsf', '54235235', 50000, '', 'lakukan pembayaran', '2023-10-17 22:24:16', '2023-10-16 22:24:16'),
+(6, 2, 'sayasdf dsf', '54235235', 46000, '', 'lakukan pembayaran', '2023-10-17 22:27:25', '2023-10-18 22:27:25');
 
 -- --------------------------------------------------------
 
@@ -404,16 +421,17 @@ CREATE TABLE `tbl_pemesanan_souvenir` (
   `total_harga` int(11) NOT NULL,
   `keterangan_tambahan` varchar(255) NOT NULL,
   `status_pemesanan` enum('lakukan pembayaran','lunas','menunggu konfirmasi') NOT NULL,
-  `tanggal_pemesanan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tanggal_pemesanan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `batas_pemesanan` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pemesanan_souvenir`
 --
 
-INSERT INTO `tbl_pemesanan_souvenir` (`id_pemesanan_souvenir`, `id_member`, `nama_pemesan`, `no_telp_pemesan`, `total_harga`, `keterangan_tambahan`, `status_pemesanan`, `tanggal_pemesanan`) VALUES
-(1, 2, 'saya', '54235235', 84800, 'dsfsdfs', 'lunas', '2023-09-14 15:55:01'),
-(2, 2, 'saya', '54235235', 4800, '', 'lakukan pembayaran', '2023-09-14 15:50:19');
+INSERT INTO `tbl_pemesanan_souvenir` (`id_pemesanan_souvenir`, `id_member`, `nama_pemesan`, `no_telp_pemesan`, `total_harga`, `keterangan_tambahan`, `status_pemesanan`, `tanggal_pemesanan`, `batas_pemesanan`) VALUES
+(1, 2, 'saya', '54235235', 84800, 'dsfsdfs', 'lunas', '2023-09-14 15:55:01', NULL),
+(3, 2, 'sayasdf dsf', '54235235', 20000, '', 'lakukan pembayaran', '2023-10-17 15:31:04', '2023-10-16 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -684,19 +702,19 @@ ALTER TABLE `tbl_bank`
 -- AUTO_INCREMENT for table `tbl_detail_pemesanan_karcis`
 --
 ALTER TABLE `tbl_detail_pemesanan_karcis`
-  MODIFY `id_detail_pemesanan_karcis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_detail_pemesanan_karcis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_pemesanan_kuliner`
 --
 ALTER TABLE `tbl_detail_pemesanan_kuliner`
-  MODIFY `id_detail_pemesanan_kuliner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_detail_pemesanan_kuliner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_pemesanan_souvenir`
 --
 ALTER TABLE `tbl_detail_pemesanan_souvenir`
-  MODIFY `id_detail_pemesanan_souvenir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_detail_pemesanan_souvenir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_galeri`
@@ -738,31 +756,31 @@ ALTER TABLE `tbl_member`
 -- AUTO_INCREMENT for table `tbl_pembayaran`
 --
 ALTER TABLE `tbl_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_pemesanan_home_stay`
 --
 ALTER TABLE `tbl_pemesanan_home_stay`
-  MODIFY `id_pemesanan_homestay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pemesanan_homestay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_pemesanan_karcis`
 --
 ALTER TABLE `tbl_pemesanan_karcis`
-  MODIFY `id_pemesanan_karcis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pemesanan_karcis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_pemesanan_kuliner`
 --
 ALTER TABLE `tbl_pemesanan_kuliner`
-  MODIFY `id_pemesanan_kuliner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pemesanan_kuliner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_pemesanan_souvenir`
 --
 ALTER TABLE `tbl_pemesanan_souvenir`
-  MODIFY `id_pemesanan_souvenir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pemesanan_souvenir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_pengumuman`

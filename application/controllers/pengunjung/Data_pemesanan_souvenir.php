@@ -41,6 +41,8 @@ class Data_pemesanan_souvenir extends CI_Controller {
         $id_member = $this->session->userdata('id_member');
 
        
+        date_default_timezone_set('Asia/Jakarta');
+        $hari_ini = date('Y-m-d H:i:s');
 
         $data = array(
             'id_member' => $id_member,
@@ -49,6 +51,8 @@ class Data_pemesanan_souvenir extends CI_Controller {
             'total_harga' => $this->input->post('total_harga', TRUE),
             'keterangan_tambahan' => $this->input->post('keterangan_tambahan', TRUE),
             'status_pemesanan' => 'lakukan pembayaran',
+            'tanggal_pemesanan' => date('Y-m-d H:i:s'),
+            'batas_pemesanan' => date('Y-m-d H:i:s', strtotime($hari_ini . ' +1 day')),
         );
 
         $this->db->insert('tbl_pemesanan_souvenir', $data);

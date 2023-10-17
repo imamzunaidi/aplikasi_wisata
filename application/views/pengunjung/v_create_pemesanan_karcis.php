@@ -100,18 +100,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($this->cart->contents() as $items): 
-                                            $total += $items['subtotal'];
+                                         
+                                    <?php $total1 = 0; foreach ($this->cart->contents() as $items): 
+                                            $total1 += $items['subtotal'];
                                         ?>
                                         <?php endforeach; ?>
                                         <tr>
                                             <td>Harga</td>
-                                            <td>Rp. <?= number_format($total, 0)?></td>
+                                            <td>Rp. <?= number_format($total1, 0)?></td>
                                         </tr>
                                         
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>Rp. <?= number_format($total, 0)?></td>
+                                            <td>Rp. <?= number_format($total1, 0)?></td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->

@@ -34,15 +34,18 @@ class Data_pemesanan_homestay extends CI_Controller {
     }
 
     public function insert(){
+        date_default_timezone_set('Asia/Jakarta');
 
         $id_home_stay = $this->input->post('id_home_stay', TRUE);
         $id_member = $this->session->userdata('id_member');
 
         $cek_kondisi = $this->M_pemesanan_home_stay->cek_pemesanan($id_home_stay, $id_member);
 
+        $hari_ini = date('Y-m-d H:i:s');
         if($cek_kondisi > 0){
             $this->flash_message->failed('Selesaikan Pemesanan Terlebih Dahulu', 'pesanan-homestay');
         }
+        
         $data = array(
             'nama_pemesan' => $this->input->post('nama_pemesan', TRUE),
             'no_telp_pemesan' => $this->input->post('no_telp_pemesan', TRUE),
@@ -54,6 +57,8 @@ class Data_pemesanan_homestay extends CI_Controller {
             'keterangan_tambahan' => $this->input->post('keterangan_tambahan', TRUE),
             'status_pemesanan' => 'menunggu konfirmasi',
             'id_home_stay' => $this->input->post('id_home_stay', TRUE),
+            'tanggal_pemesan' => date('Y-m-d H:i:s'),
+            'batas_pemesanan' => date('Y-m-d H:i:s', strtotime($hari_ini . ' +1 day')),
             'id_member' => $this->session->userdata('id_member'),
         );
 

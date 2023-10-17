@@ -18,6 +18,7 @@
                         <th>Nama Penerima</th>
                         <th>Total Harga</th>
                         <th>Tanggal</th>
+                        <th>Batas</th>
                         <th>Status Pemesanan</th>
                         <th>Action</th>
                     </tr>
@@ -33,6 +34,7 @@
                             <td><?= $value->nama_member?></td>
                             <td><?= $value->total_harga?></td>
                             <td><?= $value->tanggal_pemesan?></td>
+                            <td><?= $value->batas_pemesanan?></td>
                             <td><?= $value->status_pemesanan?></td>
                             <td>
                                <a href="<?= base_url('admin/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>

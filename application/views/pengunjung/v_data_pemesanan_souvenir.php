@@ -29,6 +29,7 @@
                                         <th>No Telp</th>
                                         <th>Total</th>
                                         <th>Tanggal</th>
+                                        <th>Batas Pemesanan</th>
                                         <th>Status Pemesanan</th>
                                        
                                         <th>Action</th>
@@ -44,18 +45,27 @@
                                                 <td><?= $value->no_telp_pemesan?></td>
                                                 <td><?= $value->total_harga?></td>
                                                 <td><?= $value->tanggal_pemesanan?></td>
-                                         
-                                                <td><?= $value->status_pemesanan?></td>
+                                                <td><?= $value->batas_pemesanan?></td>
+                                                <td>
+                                                    <?php if (date('Y-m-d H:i:s') >= $value->batas_pemesanan AND $value->status_pemesanan != 'lunas') { ?>
+                                                        Kadaluarsa
+                                                    <?php }else{ ?>
+                                                        <?= $value->status_pemesanan?>
+                                                    <?php } ?>
+                                                </td>
                                                
                                                 <td>
-                                                    <?php if( $value->status_pemesanan == 'lakukan pembayaran'){ ?>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/detail_pemesanan/' . $value->id_pemesanan_souvenir) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/delete_pemesanan/' . $value->id_pemesanan_souvenir) ?>" class="btn-custom btn-danger btn-sm p-3"><i class="fas fa-trash"></i></a>
-                                                        <!-- <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/pembayaran/' . $value->id_pemesanan_souvenir)?>" class="btn-custom btn-success btn-sm p-3"><i class="fas fa-hand-holding-usd"></i></i></a> -->
-                                                    <?php }else if( $value->status_pemesanan != 'menunggu konfirmasi'){ ?>
-                                                        <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/detail_pemesanan/' . $value->id_pemesanan_souvenir) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
-                                                    <?php } ?>
-                                                
+                                                    <?php if (date('Y-m-d H:i:s') >= $value->batas_pemesanan AND $value->status_pemesanan != 'lunas') { ?>
+                                                    -
+                                                    <?php }else{ ?>
+                                                        <?php if( $value->status_pemesanan == 'lakukan pembayaran'){ ?>
+                                                            <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/detail_pemesanan/' . $value->id_pemesanan_souvenir) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                                            <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/delete_pemesanan/' . $value->id_pemesanan_souvenir) ?>" class="btn-custom btn-danger btn-sm p-3"><i class="fas fa-trash"></i></a>
+                                                            <!-- <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/pembayaran/' . $value->id_pemesanan_souvenir)?>" class="btn-custom btn-success btn-sm p-3"><i class="fas fa-hand-holding-usd"></i></i></a> -->
+                                                        <?php }else if( $value->status_pemesanan != 'menunggu konfirmasi'){ ?>
+                                                            <a href="<?= base_url('pengunjung/data_pemesanan_souvenir/detail_pemesanan/' . $value->id_pemesanan_souvenir) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                                        <?php } ?>
+                                                    <?php } ?> 
                                                 </td>
                                             </tr>
                                         <?php } ?>

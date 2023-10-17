@@ -19,6 +19,7 @@
                         <th>Max</th>
                         <th>Alamat</th>
                         <th>Deskripsi</th>
+                        <th>Status</th>
                         <th>Gambar</th>
                         <th class = "text-center">Action</th>
                     </tr>
@@ -34,6 +35,7 @@
                             <td><?= $value->maximal_home_stay?></td>
                             <td><?= $value->alamat_home_stay?></td>
                             <td> <?=(str_word_count("$value->deskripsi_home_stay") > 10 ? substr("$value->deskripsi_home_stay",0,80)." ...." : "$value->deskripsi_home_stay")?></td>
+                            <td><?= $value->status_home_stay?></td>
                             <td width = "10%" class ="text-center"><img src="<?= base_url()?>assets/img/homestay/<?= $value->gambar_home_stay?>" alt="" width ="90%"></td>
                             <td width = "15%" class = "text-center">
                             
@@ -129,6 +131,14 @@ foreach ($data_homestay  as $key => $value) :?>
             <div class="form-group">
               <label for="">Alamat </label>
               <input type="text" name="alamat_home_stay" id="" class="form-control" required value = "<?= $value->alamat_home_stay ?>">
+            </div>
+            <div class="form-group">
+              <label for="">Status Home Stay </label>
+              <select name="status_home_stay" id="" class = "form-control" required>
+                <option value = "<?= $value->status_home_stay ?>"><?= $value->status_home_stay ?></option>
+                <option value="tersedia">tersedia</option>
+                <option value="tidak tersedia">tidak tersedia</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="">Deskripsi</label>

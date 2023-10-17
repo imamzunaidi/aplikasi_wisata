@@ -16,6 +16,7 @@
                         <th>No Telp</th>
                         <th>Total</th>
                         <th>Tanggal</th>
+                        <th>Batas</th>
                         <th>Status Pemesanan</th>
                         <th>Action</th>
                     </tr>
@@ -29,6 +30,7 @@
                             <td><?= $value->no_telp_pemesan?></td>
                             <td><?= $value->total_harga?></td>
                             <td><?= $value->tanggal_pemesanan?></td>
+                            <td><?= $value->batas_pemesanan?></td>
                             <td><?= $value->status_pemesanan?></td>
                             <td>
                                <a href="<?= base_url('admin/data_pemesanan_kuliner/detail_pemesanan/' . $value->id_pemesanan_kuliner) ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>

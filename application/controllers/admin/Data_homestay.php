@@ -76,6 +76,7 @@ class Data_homestay extends CI_Controller {
                 'maximal_home_stay' => $this->input->post('maximal_home_stay'),
                 'deskripsi_home_stay' => $this->input->post('deskripsi_home_stay'),
                 'alamat_home_stay' => $this->input->post('alamat_home_stay'),
+                'status_home_stay' => $this->input->post('status_home_stay'),
             );
         }else{
             $data = array(
@@ -84,6 +85,7 @@ class Data_homestay extends CI_Controller {
                 'maximal_home_stay' => $this->input->post('maximal_home_stay'),
                 'deskripsi_home_stay' => $this->input->post('deskripsi_home_stay'),
                 'alamat_home_stay' => $this->input->post('alamat_home_stay'),
+                'status_home_stay' => $this->input->post('status_home_stay'),
                 'gambar_home_stay' => $result_foto,
             );
         }

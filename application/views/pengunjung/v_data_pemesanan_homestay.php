@@ -5,7 +5,9 @@
         height: 194px;
     }
 </style>
-
+<?php 
+ date_default_timezone_set('Asia/Jakarta');
+?>
 <main class="main">
     <div class="page-header text-center" style="background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .2)), url(<?= base_url('assets_pengunjung/')?>assets/images/bg-hero.jpg);">
         <div class="container">
@@ -28,6 +30,7 @@
                                         <th>Nama Penerima</th>
                                         <th>Total Harga</th>
                                         <th>Tanggal</th>
+                                        <th>Batas</th>
                                         <th>Status Pemesanan</th>
                                        
                                         <th>Action</th>
@@ -45,15 +48,23 @@
                                             <td><?= $value->nama_member?></td>
                                             <td><?= $value->total_harga?></td>
                                             <td><?= $value->tanggal_pemesan?></td>
-                                            <td><?= $value->status_pemesanan?></td>
-                                            
+                                            <td><?= $value->batas_pemesanan?></td>
                                             <td>
-                                                <?php if( $value->status_pemesanan == 'menunggu konfirmasi'){ ?>
-                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/delete_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-danger btn-sm p-3"><i class="fas fa-trash"></i></a>
+                                            <?php if (date('Y-m-d H:i:s') >= $value->batas_pemesanan AND $value->status_pemesanan != 'lunas') { ?>
                                             
-                                                <?php }?>
-                                                <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
-                                              
+                                            <?php }else{ ?>
+                                                <?= $value->status_pemesanan?></td>
+                                            <?php } ?>
+                                            <td>
+                                                <?php if (date('Y-m-d H:i:s') >= $value->batas_pemesanan AND $value->status_pemesanan != 'lunas') { ?>
+                                                 -
+                                                <?php }else{ ?>
+                                                    <?php if( $value->status_pemesanan == 'menunggu konfirmasi'){ ?>
+                                                        <a href="<?= base_url('pengunjung/data_pemesanan_homestay/delete_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-danger btn-sm p-3"><i class="fas fa-trash"></i></a>
+                                                
+                                                    <?php }?>
+                                                    <a href="<?= base_url('pengunjung/data_pemesanan_homestay/detail_pemesanan/' . $value->id_pemesanan_homestay) ?>" class="btn-custom btn-info btn-sm p-3"><i class="fas fa-eye"></i></a>
+                                                <?php } ?> 
                                             </td>
                                         </tr>
                                     <?php } ?>
