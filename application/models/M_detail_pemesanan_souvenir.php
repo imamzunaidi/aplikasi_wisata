@@ -31,4 +31,10 @@
         $this->db->where('id_detail_pemesanan_souvenir', $id_detail_pemesanan_souvenir);
         $this->db->delete($this->table);
     }
+
+    public function delete_by_id_pemesanan($id_pemesanan_souvenir){
+        $this->db->where('id_pemesanan_souvenir', $id_pemesanan_souvenir);
+        $this->db->delete($this->table);
+    }
+    
 }

@@ -44,7 +44,7 @@ class Data_bank extends CI_Controller {
         );
 
         $this->M_bank->insert($data);
-        $this->flash_message->success('Tambahkan', 'data-bank-penjual');
+        $this->flash_message->success('Tambahkan', 'data-bank');
     }
 
     public function update(){
@@ -57,12 +57,12 @@ class Data_bank extends CI_Controller {
         );
       
         $this->M_bank->update($data, $id_bank);
-        $this->flash_message->success('Update', 'data-bank-penjual');
+        $this->flash_message->success('Update', 'data-bank');
     }
 
     public function delete($id_bank){       
         $this->M_bank->delete($id_bank);
-        $this->flash_message->success('Hapus', 'data-bank-penjual');
+        $this->flash_message->success('Hapus', 'data-bank');
     
     }
 

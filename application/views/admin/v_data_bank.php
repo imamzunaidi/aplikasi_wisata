@@ -32,7 +32,7 @@
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updatedata<?= $value->id_bank ?>">
                       <i class="fas fa-edit"></i>
                     </button>
-                    <a href="<?= base_url('penjual/data_bank_penjual/delete/' . $value->id_bank) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                    <a href="<?= base_url('admin/data_bank/delete/' . $value->id_bank) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -55,7 +55,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('penjual/data_bank_penjual/insert') ?>" method="post">
+      <form action="<?= base_url('admin/data_bank/insert') ?>" method="post">
         <div class="modal-body">
           <div class="form-group">
             <label for="">Nama bank</label>
@@ -90,7 +90,7 @@ foreach ($data_bank as $key => $value) :?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('penjual/data_bank_penjual/update') ?>" method="post">
+      <form action="<?= base_url('admin/data_bank/update') ?>" method="post">
         <div class="modal-body">
           <div class="form-group">
             <label for="">Nama bank</label>

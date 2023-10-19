@@ -10,6 +10,16 @@ public function get_all(){
 
 }
 
+public function get_limit_stok(){
+   
+    $this->db->select('*');
+    $this->db->from('tbl_souvenir tbs');
+    $this->db->where('stok_souvenir >', 0);
+    
+    return $this->db->get()->result();
+
+}
+
 public function get_limit($limit){
    
     $this->db->select('*');

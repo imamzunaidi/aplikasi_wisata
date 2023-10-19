@@ -31,7 +31,7 @@ class Data_pemesanan_souvenir extends CI_Controller {
       
         $data = array(
             'title' => 'Data souvenir',
-            'data_souvenir' => $this->M_souvenir->get_all(),
+            'data_souvenir' => $this->M_souvenir->get_limit_stok(),
         
         );
         $this->templates->pengunjung('v_create_pemesanan_souvenir', $data);
@@ -64,7 +64,16 @@ class Data_pemesanan_souvenir extends CI_Controller {
 
         $index = 0;
         foreach ($id_souvenir as $key => $value) {
-            # code...
+            $sovenir = $this->M_souvenir->get_by_id($value);
+            
+            $stok = intval($sovenir->stok_souvenir - $qty[$index]);
+
+            $data_stok = [
+                'stok_souvenir' => $stok,
+            ];
+
+            $this->M_souvenir->update($data_stok, $value);
+
             $data_detail = [
                 'id_souvenir' => $value,
                 'id_pemesanan_souvenir' => $insert_id,
@@ -80,7 +89,23 @@ class Data_pemesanan_souvenir extends CI_Controller {
     }
 
     public function delete_pemesanan($id_pemesanan_souvenir){
+
+        $detail = $this->M_detail_pemesanan_souvenir->get_all($id_pemesanan_souvenir);
+
+        foreach ($detail as $key => $value) {
+            $sovenir = $this->M_souvenir->get_by_id($value->id_souvenir);
+            
+            $stok = intval($sovenir->stok_souvenir + $value->qty);
+
+            $data_stok = [
+                'stok_souvenir' => $stok,
+            ];
+
+            $this->M_souvenir->update($data_stok, $value->id_souvenir);
+        }
+
         $this->M_pemesanan_souvenir->delete($id_pemesanan_souvenir);
+        $this->M_detail_pemesanan_souvenir->delete_by_id_pemesanan($id_pemesanan_souvenir);
         $this->flash_message->success('Di hapus', 'pesanan-souvenir');
     }
 
