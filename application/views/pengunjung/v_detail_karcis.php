@@ -40,18 +40,14 @@
                                 <p><?= $detail_karcis->deskripsi_karcis?> </p>
                             </div>
                             <div class="product-details-action">
-                                <?php 
-                                    echo form_open('pembeli/barang/add_keranjang');
-                                    echo form_hidden('id', $detail_karcis->id_karcis );
-                                    echo form_hidden('qty', 1);
-                                    echo form_hidden('price', $detail_karcis->harga_karcis);
-                                    echo form_hidden('name', $detail_karcis->nama_karcis);
-                                    echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
-                                ?>
-                                <button type = "submit" class="btn btn-sm btn-primary  swalDefaultSuccess">
-                                    <i class="fas fa-cart-plus"></i> Pemesanan
-                                </button>
-                                <?php echo form_close();?>
+                                <form action="<?= base_url('pengunjung/data_pemesanan_karcis/add_karcis')?>" method="post">
+                                    <input type="hidden" name = "id_karcis" value = "<?= $detail_karcis->id_karcis?>">
+                                    <input type="hidden" name = "qty" value = "1">
+                                    <button type="submit" class="btn btn-sm btn-primary swalDefaultSuccess">
+                                        <i class="fas fa-cart-plus"></i> Pemesanan
+                                    </button>
+                                    
+                                </form>
                             </div><!-- End .product-details-action -->
                         </div><!-- End .product-details -->
                     </div><!-- End .col-md-6 -->

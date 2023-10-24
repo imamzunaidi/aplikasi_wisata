@@ -40,18 +40,16 @@
                                 <p><?= $detail_souvenir->deskripsi_souvenir?> </p>
                             </div>
                             <div class="product-details-action">
-                                <?php 
-                                    echo form_open('pembeli/barang/add_keranjang');
-                                    echo form_hidden('id', $detail_souvenir->id_souvenir );
-                                    echo form_hidden('qty', 1);
-                                    echo form_hidden('price', $detail_souvenir->harga_souvenir);
-                                    echo form_hidden('name', $detail_souvenir->nama_souvenir);
-                                    echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
-                                ?>
-                                <button type = "submit" class="btn btn-sm btn-primary  swalDefaultSuccess">
-                                    <i class="fas fa-cart-plus"></i> Pemesanan
-                                </button>
-                                <?php echo form_close();?>
+                              
+                                <form action="<?= base_url('pengunjung/data_pemesanan_souvenir/add_souvenir')?>" method="post">
+                                    <input type="hidden" name = "id_souvenir" value = "<?= $detail_souvenir->id_souvenir?>">
+                                    <input type="hidden" name = "qty" value = "1">
+                                
+                                    <button type = "submit" class="btn btn-sm btn-primary swalDefaultSuccess" style = "width: 100%;">
+                                        <i class="fas fa-cart-plus"></i> Pemesanan
+                                    </button>
+                                    
+                                </form>
                             </div><!-- End .product-details-action -->
                         </div><!-- End .product-details -->
                     </div><!-- End .col-md-6 -->

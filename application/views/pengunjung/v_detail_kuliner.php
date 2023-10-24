@@ -39,8 +39,15 @@
                             <div class="product-content">
                                 <p><?= $detail_kuliner->deskripsi_kuliner?> </p>
                             </div>
-                            <a href="" class="btn btn-sm btn-primary  swalDefaultSuccess"> <i class="fas fa-cart-plus"></i> Pemesanan</a>
-                          
+                        
+                                <form action="<?= base_url('pengunjung/data_pemesanan_kuliner/add_kuliner')?>" method="post">
+                                    <input type="hidden" name = "id_kuliner" value = "<?= $detail_kuliner->id_kuliner?>">
+                                    <input type="hidden" name = "qty" value = "1">
+                                    <button type="submit" class="btn btn-sm btn-primary swalDefaultSuccess">
+                                        <i class="fas fa-cart-plus"></i> Pemesanan
+                                    </button>
+                                    
+                                </form>
                             </div><!-- End .product-details-action -->
                         </div><!-- End .product-details -->
                     </div><!-- End .col-md-6 -->

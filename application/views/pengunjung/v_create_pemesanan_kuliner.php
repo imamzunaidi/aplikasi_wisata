@@ -91,7 +91,7 @@
                                     <input type="hidden" name = "subtotal[]" value = "<?= $items['subtotal']?>">
                                     <input type="hidden" name = "qty[]" value = "<?= $items['qty']?>">
                                 <?php endforeach; ?>
-                                <input type="hidden" name = "total_harga" value = "<?= $total?>">
+                              
                                 <table class="table table-summary">
                                     <thead>
                                         <tr>
@@ -114,6 +114,7 @@
                                             <td>Rp. <?= number_format($total1, 0)?></td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
+                                    <input type="hidden" name = "total_harga" value = "<?= $total1?>">
                                 </table><!-- End .table table-summary -->
                                 <button type="submit" class="btn btn-primary btn-round text-center" style = "width:100%">
                                     <span class="btn-text">Submit Pemesanan</span>

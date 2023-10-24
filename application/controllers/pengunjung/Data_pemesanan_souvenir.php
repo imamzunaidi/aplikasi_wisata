@@ -60,6 +60,8 @@ class Data_pemesanan_souvenir extends CI_Controller {
 
         $id_souvenir = $this->input->post('id_souvenir', TRUE);
         $subtotal = $this->input->post('subtotal', TRUE);
+
+     
         $qty = $this->input->post('qty', TRUE);
 
         $index = 0;
