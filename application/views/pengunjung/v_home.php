@@ -25,7 +25,7 @@
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
                             <h3 class="intro-subtitle text-third"  style = "color: white;">Paket Wisata</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title" style = "color: white;">Cintai</h1>
-                            <h1 class="intro-title"  style = "color: white;">Pariwisata di Sekitar Kita</h1><!-- End .intro-title -->
+                            <h1 class="intro-title"  style = "color: white;">Pariwisata Koja</h1><!-- End .intro-title -->
 
                             <a href="<?= base_url('home-stay')?>" class="btn btn-primary btn-round">
                                 <span>Home Stay</span>

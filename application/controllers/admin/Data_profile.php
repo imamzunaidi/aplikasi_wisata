@@ -29,7 +29,7 @@ class Data_profile extends CI_Controller {
     public function index()
     {
         $data = array(
-            'title' => 'Data Profile Sekolah',
+            'title' => 'Data Profile Wisata',
             'profile' => $this->M_profile->get_all(),
         );
 
